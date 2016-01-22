@@ -1,4 +1,4 @@
-package com.ninise.notereminder;
+package com.ninise.notereminder.main;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,7 +16,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return position == 0 ? new NoteFragment() : new ReminderFragment();
+        return position == 0 ? new NoteListFragment() : new ReminderListFragment();
     }
 
 

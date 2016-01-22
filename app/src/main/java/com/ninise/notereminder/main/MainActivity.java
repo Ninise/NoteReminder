@@ -1,5 +1,6 @@
-package com.ninise.notereminder;
+package com.ninise.notereminder.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
@@ -9,6 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.ninise.notereminder.R;
+import com.ninise.notereminder.notedata.NoteActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.menu_new_note:
-                Toast.makeText(getApplicationContext(), R.string.menu_new_note, Toast.LENGTH_SHORT).show();
+                switchToNoteActivity();
                 return true;
             case R.id.menu_settings:
                 Toast.makeText(getApplicationContext(), R.string.menu_settings, Toast.LENGTH_SHORT).show();
@@ -72,8 +76,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void switchToNoteActivity() {
+        Intent intent = new Intent(this, NoteActivity.class);
+        startActivity(intent);
+    }
+
     private void closeApp() {
-        android.os.Process.killProcess(android.os.Process.myPid());
-        System.exit(1);
+        finish();
     }
 }
