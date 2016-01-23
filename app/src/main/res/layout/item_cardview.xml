@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:id="@+id/cv"
+    style="@style/CardViewStyle.Light">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        style="@style/RobotoTextViewStyle">
+
+        <TextView
+            android:id="@+id/data_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textSize="30sp"/>
+
+        <ImageButton
+            android:id="@+id/dataBtnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/button_delete_selector"
+            />
+
+        <ImageButton
+            android:id="@+id/dataBtnSetAlarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/dataBtnDelete"
+            android:src="@drawable/button_setalarm_selector"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

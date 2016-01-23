@@ -30,8 +30,6 @@ public class NoteActivity extends AppCompatActivity {
             }
         });
 
-        Log.d(TAG, "ON CREATE");
-
         viewNoteFragment();
     }
 
