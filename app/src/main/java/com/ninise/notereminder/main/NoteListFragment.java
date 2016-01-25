@@ -50,6 +50,7 @@ public class NoteListFragment extends Fragment {
         itemAnimator.setAddDuration(1000);
         itemAnimator.setRemoveDuration(1000);
         mRecyclerView.setItemAnimator(itemAnimator);
+
         return v;
     }
 
@@ -64,4 +65,5 @@ public class NoteListFragment extends Fragment {
         mNoteList = mNoteWorker.getAllNotes();
         mAdapter = new NoteAdapter(mNoteList, getActivity());
     }
+
 }

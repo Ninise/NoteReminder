@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 
 import com.ninise.notereminder.R;
@@ -34,8 +33,9 @@ public class NoteActivity extends AppCompatActivity {
     }
 
     private void viewNoteFragment() {
+        NoteFragment fragment = new NoteFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame, new NoteFragment());
+        fragmentTransaction.replace(R.id.frame, fragment);
         fragmentTransaction.commit();
     }
 }

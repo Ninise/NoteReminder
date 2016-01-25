@@ -11,10 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.ninise.notereminder.R;
+import com.ninise.notereminder.Utils.Constants;
 import com.ninise.notereminder.database.NoteModel;
 import com.ninise.notereminder.database.NoteWorker;
-
-import java.util.List;
 
 public class NoteFragment extends Fragment {
 
@@ -33,12 +32,6 @@ public class NoteFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         noteWorker = new NoteWorker(getActivity());
-//        noteWorker.deleteAllNotes();
-        List<NoteModel> arr = noteWorker.getAllNotes();
-
-        for (int i = 0; i < arr.size(); i++) {
-            Log.d(TAG, arr.get(i).toString());
-        }
 
     }
 
@@ -49,6 +42,16 @@ public class NoteFragment extends Fragment {
 
         mTitleEditText = (EditText) v.findViewById(R.id.titleEditText);
         mDescriptionEditText = (EditText) v.findViewById(R.id.descriptEditText);
+
+        if (getBundle()) {
+            int id = getActivity().getIntent().getExtras().getInt(Constants.EXTRA_ID);
+            String title = getActivity().getIntent().getExtras().getString(Constants.EXTRA_TITLE);
+            String descript = getActivity().getIntent().getExtras().getString(Constants.EXTRA_DESCRIPT);
+            long time = getActivity().getIntent().getExtras().getLong(Constants.EXTRA_TIME);
+
+            mTitleEditText.setText(title);
+            mDescriptionEditText.setText(descript);
+        }
 
         mSaveBtn = (Button) v.findViewById(R.id.saveNoteBtn);
 
@@ -73,5 +76,9 @@ public class NoteFragment extends Fragment {
                 mTitleEditText.getText().toString(),
                 mDescriptionEditText.getText().toString()
         );
+    }
+
+    private boolean getBundle() {
+        return (getActivity().getIntent().getExtras() != null);
     }
 }
