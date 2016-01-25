@@ -17,6 +17,8 @@
 
         <activity android:name=".notedata.NoteActivity"/>
 
+        <activity android:name=".developer.DeveloperActivity"/>
+
     </application>
 
 </manifest>

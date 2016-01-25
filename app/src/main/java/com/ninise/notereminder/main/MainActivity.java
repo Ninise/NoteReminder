@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.ninise.notereminder.R;
+import com.ninise.notereminder.developer.DeveloperActivity;
 import com.ninise.notereminder.notedata.NoteActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -69,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_settings:
                 Toast.makeText(getApplicationContext(), R.string.menu_settings, Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.menu_developer:
+                switchToDevActivity();
+                return true;
             case R.id.menu_exit:
                 closeApp();
                 return true;
@@ -79,6 +83,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void switchToNoteActivity() {
         Intent intent = new Intent(this, NoteActivity.class);
+        startActivity(intent);
+    }
+
+    private void switchToDevActivity() {
+        Intent intent = new Intent(this, DeveloperActivity.class);
         startActivity(intent);
     }
 
