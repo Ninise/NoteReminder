@@ -12,4 +12,6 @@
     <string name="on_btn">Ok</string>
     <string name="created_by">Created by Nikitin N.</string>
     <string name="menu_developer">Developer</string>
+    <string name="from_time">FROM: </string>
+    <string name="to_time">TO: </string>
 </resources>

@@ -50,4 +50,10 @@ public class NoteWorker implements IDatabaseHandeler {
         Log.d(TAG, " UPDATE NOTE " + noteModel.toString());
         return db.updateNote(noteModel);
     }
+
+    @Override
+    public List<NoteModel> getAllReminders() {
+        Log.d(TAG, " GET ALL REMINDERS");
+        return db.getAllReminders();
+    }
 }

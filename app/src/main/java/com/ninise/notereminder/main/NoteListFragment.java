@@ -37,7 +37,7 @@ public class NoteListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_notelist_layout, container, false);
+        View v = inflater.inflate(R.layout.fragments_list_layout, container, false);
 
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv);
 
@@ -65,5 +65,6 @@ public class NoteListFragment extends Fragment {
         mNoteList = mNoteWorker.getAllNotes();
         mAdapter = new NoteAdapter(mNoteList, getActivity());
     }
+
 
 }

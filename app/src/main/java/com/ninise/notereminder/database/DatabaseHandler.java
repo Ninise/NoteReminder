@@ -65,7 +65,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements IDatabaseHandel
         db.delete(
                 TABLE_NOTES,
                 KEY_ID + " = ?",
-                new String[] {String.valueOf(noteModel.getId())}
+                new String[]{String.valueOf(noteModel.getId())}
         );
         db.close();
     }
@@ -113,10 +113,10 @@ public class DatabaseHandler extends SQLiteOpenHelper implements IDatabaseHandel
     @Override
     public List<NoteModel> getAllNotes() {
         List<NoteModel> dataNotesList = new ArrayList<>();
-        String selectQuety = "SELECT * FROM " + TABLE_NOTES;
+        String selectQuery = "SELECT * FROM " + TABLE_NOTES + " WHERE " + KEY_TIME + " = 0";
 
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuety, null);
+        Cursor cursor = db.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -134,6 +134,29 @@ public class DatabaseHandler extends SQLiteOpenHelper implements IDatabaseHandel
     }
 
     @Override
+    public List<NoteModel> getAllReminders() {
+        List<NoteModel> dataReminerList = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + TABLE_NOTES + " WHERE " + KEY_TIME + " != 0";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                NoteModel noteModel = new NoteModel();
+                noteModel.setId(Integer.parseInt(cursor.getString(0)));
+                noteModel.setTitle(cursor.getString(1));
+                noteModel.setDescription(cursor.getString(2));
+                noteModel.setTime(Long.parseLong(cursor.getString(3)));
+
+                dataReminerList.add(noteModel);
+            } while (cursor.moveToNext());
+        }
+
+        return dataReminerList;
+    }
+
+    @Override
     public int updateNote(NoteModel noteModel) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -141,7 +164,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements IDatabaseHandel
 
         values.put(KEY_TITLE, noteModel.getTitle());
         values.put(KEY_DESCRIPTION, noteModel.getDescription());
-        values.put(KEY_TITLE, noteModel.getTime());
+        values.put(KEY_TIME, noteModel.getTime());
 
         return db.update(TABLE_NOTES,
                 values,

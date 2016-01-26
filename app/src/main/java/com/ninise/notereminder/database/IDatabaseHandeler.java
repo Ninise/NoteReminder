@@ -10,5 +10,6 @@ public interface IDatabaseHandeler {
      NoteModel getNote(int id);
      List<NoteModel> getAllNotes();
      int updateNote(NoteModel noteModel);
+     List<NoteModel> getAllReminders();
 
 }

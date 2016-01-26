@@ -21,6 +21,22 @@
             android:layout_alignParentTop="true"
             android:textSize="30sp"/>
 
+        <TextView
+            android:id="@+id/data_from_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/data_title"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/data_to_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/data_title"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/data_from_time"/>
+
         <ImageButton
             android:id="@+id/dataBtnDelete"
             android:layout_width="wrap_content"

@@ -26,6 +26,7 @@ public class NoteFragment extends Fragment {
     private NoteWorker noteWorker;
 
     private static int ID;
+    private static long TIME;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,11 +44,11 @@ public class NoteFragment extends Fragment {
         mTitleEditText = (EditText) v.findViewById(R.id.titleEditText);
         mDescriptionEditText = (EditText) v.findViewById(R.id.descriptEditText);
 
-        if (getBundle()) {
-            int id = getActivity().getIntent().getExtras().getInt(Constants.EXTRA_ID);
+        if (getBundleNotNull()) {
+            ID = getActivity().getIntent().getExtras().getInt(Constants.EXTRA_ID);
             String title = getActivity().getIntent().getExtras().getString(Constants.EXTRA_TITLE);
             String descript = getActivity().getIntent().getExtras().getString(Constants.EXTRA_DESCRIPT);
-            long time = getActivity().getIntent().getExtras().getLong(Constants.EXTRA_TIME);
+            TIME = getActivity().getIntent().getExtras().getLong(Constants.EXTRA_TIME);
 
             mTitleEditText.setText(title);
             mDescriptionEditText.setText(descript);
@@ -58,10 +59,13 @@ public class NoteFragment extends Fragment {
         mSaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!mTitleEditText.getText().toString().equals("") ||
-                        !mDescriptionEditText.getText().toString().equals("")) {
-                    noteWorker.addNote(getNote());
-                    Log.d(TAG, " ADDED ");
+                if (!getBundleNotNull()) {
+                    if (!mTitleEditText.getText().toString().equals("")) {
+                        noteWorker.addNote(getNote());
+                        Log.d(TAG, " ADDED ");
+                    }
+                } else {
+                    noteWorker.updateNote(getNote());
                 }
 
                 getActivity().onBackPressed();
@@ -73,12 +77,14 @@ public class NoteFragment extends Fragment {
 
     private NoteModel getNote() {
         return new NoteModel (
+                ID,
                 mTitleEditText.getText().toString(),
-                mDescriptionEditText.getText().toString()
+                mDescriptionEditText.getText().toString(),
+                TIME
         );
     }
 
-    private boolean getBundle() {
+    private boolean getBundleNotNull() {
         return (getActivity().getIntent().getExtras() != null);
     }
 }
