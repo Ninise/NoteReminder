@@ -43,7 +43,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         CardView cv;
         ImageButton mDeleteBtn;
         ImageButton mAlarmBtn;
-        TextView mFromTextView;
         TextView mToTextView;
 
         public ViewHolder(View itemView) {
@@ -56,8 +55,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
             mDeleteBtn = (ImageButton) itemView.findViewById(R.id.dataBtnDelete);
 
             mAlarmBtn = (ImageButton) itemView.findViewById(R.id.dataBtnSetAlarm);
-
-            mFromTextView = (TextView) itemView.findViewById(R.id.data_from_time);
 
             mToTextView = (TextView) itemView.findViewById(R.id.data_to_time);
 
@@ -83,11 +80,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
         if (mDataSet.get(holder.getAdapterPosition()).getTime() > 0) {
 
-            String from = context.getString(R.string.from_time);
-            String to = context.getString(R.string.to_time);
+            String deadline = context.getString(R.string.to_time);
 
-            holder.mFromTextView.setText(from + " ");
-            holder.mToTextView.setText(to + " " + date.format(mDataSet.get(holder.getAdapterPosition()).getTime()));
+            holder.mToTextView.setText(deadline + " " + date.format(mDataSet.get(holder.getAdapterPosition()).getTime()));
         }
 
         /** Click on CardView for send data to NoteActivity */
