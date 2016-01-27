@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +23,7 @@ import com.ninise.notereminder.Utils.Constants;
 import com.ninise.notereminder.database.NoteModel;
 import com.ninise.notereminder.database.NoteWorker;
 import com.ninise.notereminder.notedata.NoteActivity;
+import com.ninise.notereminder.notification.AlarmNotification;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -144,13 +144,16 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         noteWorker = new NoteWorker(context);
 
         NoteModel newNote = mDataSet.get(position);
-        Log.d("NoteAdapter", mDataSet.get(position).toString());
         newNote.setTime(time);
-        noteWorker.updateNote(newNote);
-        mDataSet.set(position, newNote);
-        notifyDataSetChanged();
 
-        Log.d("NoteAdapter", mDataSet.get(position).toString());
+        noteWorker.updateNote(newNote);
+
+        mDataSet.set(position, newNote);
+
+        AlarmNotification alarm = new AlarmNotification(context);
+        alarm.setOnceAlarm(time, mDataSet.get(position).getDescription());
+
+        notifyDataSetChanged();
     }
 
     private void sendData(int position) {
@@ -189,6 +192,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
                         time = calendar.getTimeInMillis();
 
                         update(position);
+
                     }
                 });
 

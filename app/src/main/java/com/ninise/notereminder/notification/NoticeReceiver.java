@@ -8,12 +8,11 @@ import android.content.Intent;
 import android.support.v7.app.NotificationCompat;
 
 import com.ninise.notereminder.R;
+import com.ninise.notereminder.Utils.Constants;
 
 public class NoticeReceiver extends BroadcastReceiver {
 
     private static final String TAG = "NoticeReceiver";
-
-    private static final String ContentText = "notice";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -22,13 +21,13 @@ public class NoticeReceiver extends BroadcastReceiver {
                 (NotificationCompat.Builder) new NotificationCompat.Builder(context)
                         .setSmallIcon(R.drawable.ic_nr)
                         .setContentTitle(context.getString(R.string.app_name))
-                        .setContentText(intent.getStringExtra(ContentText));
+                        .setContentText(intent.getStringExtra(Constants.CONTENT_TEXT));
 
         Notification notification = mBuilder.build();
 
         NotificationManager notificationManager = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(101, notification);
+        notificationManager.notify(TAG, 0, notification);
     }
 
 }
