@@ -3,7 +3,6 @@ package com.ninise.notereminder.notedata;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +61,6 @@ public class NoteFragment extends Fragment {
                 if (!getBundleNotNull()) {
                     if (!mTitleEditText.getText().toString().equals("")) {
                         noteWorker.addNote(getNote());
-                        Log.d(TAG, " ADDED ");
                     }
                 } else {
                     noteWorker.updateNote(getNote());
@@ -86,5 +84,12 @@ public class NoteFragment extends Fragment {
 
     private boolean getBundleNotNull() {
         return (getActivity().getIntent().getExtras() != null);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        TIME = 0;
+        noteWorker.close();
     }
 }

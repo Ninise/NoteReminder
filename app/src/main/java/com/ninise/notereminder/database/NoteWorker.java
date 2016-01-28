@@ -1,59 +1,50 @@
 package com.ninise.notereminder.database;
 
 import android.content.Context;
-import android.util.Log;
+
+import com.ninise.notereminder.Utils.Constants;
 
 import java.util.List;
 
-public class NoteWorker implements IDatabaseHandeler {
+public class NoteWorker {
 
     private static final String TAG = "NoteWorker";
 
-    private DatabaseHandler db;
+    private DatabaseHandler dbHandler;
 
     public NoteWorker (Context context) {
-        db = new DatabaseHandler(context);
+        this.dbHandler = new DatabaseHandler(context);
     }
 
-    @Override
     public void addNote(NoteModel noteModel) {
-        db.addNote(noteModel);
-        Log.d(TAG, " ADD NOTE " + noteModel.toString());
+        this.dbHandler.addNote(noteModel);
     }
 
-    @Override
     public void deleteNote(NoteModel noteModel) {
-        db.deleteNote(noteModel);
-        Log.d(TAG, " DELETE NOTE " + noteModel.toString());
+        this.dbHandler.deleteNote(noteModel.getId());
     }
 
-    @Override
     public void deleteAllNotes() {
-        db.deleteAllNotes();
-        Log.d(TAG, " DELETE ALL NOTES");
+        this.dbHandler.deleteAllNotes();
     }
 
-    @Override
     public NoteModel getNote(int id) {
-        Log.d(TAG, " GET NOTE " + id);
-        return db.getNote(id);
+        return this.dbHandler.getNote(id);
     }
 
-    @Override
     public List<NoteModel> getAllNotes() {
-        Log.d(TAG, " GET ALL NOTES ");
-        return db.getAllNotes();
+        return this.dbHandler.getAll(Constants.FIND_NOTE);
     }
 
-    @Override
     public int updateNote(NoteModel noteModel) {
-        Log.d(TAG, " UPDATE NOTE " + noteModel.toString());
-        return db.updateNote(noteModel);
+        return this.dbHandler.updateNote(noteModel);
     }
 
-    @Override
     public List<NoteModel> getAllReminders() {
-        Log.d(TAG, " GET ALL REMINDERS");
-        return db.getAllReminders();
+        return this.dbHandler.getAll(Constants.FIND_REMINDER);
+    }
+
+    public void close() {
+        dbHandler.close();
     }
 }

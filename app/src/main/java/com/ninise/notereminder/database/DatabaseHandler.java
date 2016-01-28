@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseHandler extends SQLiteOpenHelper implements IDatabaseHandeler {
+public class DatabaseHandler {
 
     public static final String TAG = "DatabaseHandler";
 
@@ -21,68 +21,54 @@ public class DatabaseHandler extends SQLiteOpenHelper implements IDatabaseHandel
     private static final String KEY_DESCRIPTION = "description";
     private static final String KEY_TIME = "time";
 
-    public DatabaseHandler(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    private static final String CREATE_NOTES_TABLE = "CREATE TABLE " +
+            TABLE_NOTES + "(" +
+            KEY_ID + " INTEGER PRIMARY KEY," +
+            KEY_TITLE + " TEXT," +
+            KEY_DESCRIPTION + " TEXT," +
+            KEY_TIME + " BIGINT" +
+            ")";
+
+    private SQLiteDatabase storage;
+    private SQLiteOpenHelper helper;
+
+    public DatabaseHandler(final Context ctx) {
+        this.helper = new SQLiteOpenHelper(ctx, DATABASE_NAME, null, DATABASE_VERSION) {
+            @Override
+            public void onCreate(SQLiteDatabase db) {
+                db.execSQL(CREATE_NOTES_TABLE);
+            }
+
+            @Override
+            public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+                db.execSQL("DROP TABLE IF EXIST " + TABLE_NOTES);
+                onCreate(db);
+            }
+        };
+
+        this.storage = this.helper.getWritableDatabase();
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        String CREATE_NOTES_TABLE = "CREATE TABLE " +
-                TABLE_NOTES +
-                "(" +
-                KEY_ID + " INTEGER PRIMARY KEY," +
-                KEY_TITLE + " TEXT," +
-                KEY_DESCRIPTION + " TEXT," +
-                KEY_TIME + " BIGINT" +
-                ")";
-        db.execSQL(CREATE_NOTES_TABLE);
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXIST " + TABLE_NOTES);
-
-        onCreate(db);
-    }
-
-    @Override
     public void addNote(NoteModel noteModel) {
-        SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(KEY_TITLE, noteModel.getTitle());
         values.put(KEY_DESCRIPTION, noteModel.getDescription());
         values.put(KEY_TIME, noteModel.getTime());
 
-        db.insert(TABLE_NOTES, null, values);
-        db.close();
+        this.storage.insert(TABLE_NOTES, null, values);
     }
 
-    @Override
-    public void deleteNote(NoteModel noteModel) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        db.delete(
-                TABLE_NOTES,
-                KEY_ID + " = ?",
-                new String[]{String.valueOf(noteModel.getId())}
-        );
-        db.close();
+    public void deleteNote(int id) {
+        this.storage.delete(TABLE_NOTES, KEY_ID + " = " + id, null);
     }
 
-    @Override
     public void deleteAllNotes() {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        db.delete(TABLE_NOTES, null, null);
-        db.close();
+        this.storage.delete(TABLE_NOTES, null, null);
     }
 
-    @Override
     public NoteModel getNote(int id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = db.query(TABLE_NOTES,
+        Cursor cursor = this.storage.query(TABLE_NOTES,
                                 new String[] {
                                         KEY_ID,
                                         KEY_TITLE,
@@ -107,16 +93,17 @@ public class DatabaseHandler extends SQLiteOpenHelper implements IDatabaseHandel
                 Long.parseLong(cursor.getString(3))
         );
 
+        cursor.close();
+
         return noteModel;
     }
 
-    @Override
-    public List<NoteModel> getAllNotes() {
+    public List<NoteModel> getAll(String whatFind) {
         List<NoteModel> dataNotesList = new ArrayList<>();
-        String selectQuery = "SELECT * FROM " + TABLE_NOTES + " WHERE " + KEY_TIME + " = 0";
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
+        String selectQuery = "SELECT * FROM " + TABLE_NOTES + " WHERE " + KEY_TIME + whatFind;
+
+        Cursor cursor = this.storage.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -128,47 +115,25 @@ public class DatabaseHandler extends SQLiteOpenHelper implements IDatabaseHandel
 
                 dataNotesList.add(noteModel);
             } while (cursor.moveToNext());
+
+            cursor.close();
         }
 
         return dataNotesList;
     }
 
-    @Override
-    public List<NoteModel> getAllReminders() {
-        List<NoteModel> dataReminerList = new ArrayList<>();
-        String selectQuery = "SELECT * FROM " + TABLE_NOTES + " WHERE " + KEY_TIME + " != 0";
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                NoteModel noteModel = new NoteModel();
-                noteModel.setId(Integer.parseInt(cursor.getString(0)));
-                noteModel.setTitle(cursor.getString(1));
-                noteModel.setDescription(cursor.getString(2));
-                noteModel.setTime(Long.parseLong(cursor.getString(3)));
-
-                dataReminerList.add(noteModel);
-            } while (cursor.moveToNext());
-        }
-
-        return dataReminerList;
-    }
-
-    @Override
     public int updateNote(NoteModel noteModel) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues values = new ContentValues();
 
         values.put(KEY_TITLE, noteModel.getTitle());
         values.put(KEY_DESCRIPTION, noteModel.getDescription());
         values.put(KEY_TIME, noteModel.getTime());
 
-        return db.update(TABLE_NOTES,
-                values,
-                KEY_ID + " = ?",
-                new String[] { String.valueOf(noteModel.getId()) });
+        return this.storage.update(TABLE_NOTES, values, KEY_ID + " = " + noteModel.getId(), null);
+    }
+
+    public void close() {
+        this.storage.close();
+        this.helper.close();
     }
 }
