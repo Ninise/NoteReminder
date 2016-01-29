@@ -19,7 +19,7 @@ public class NoteActivity extends AppCompatActivity {
 
         final Toolbar mToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(mToolbar);
-        mToolbar.setNavigationIcon(R.drawable.arrow_left);
+        mToolbar.setNavigationIcon(R.drawable.ic_action_hardware_keyboard_backspace);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,5 +1,6 @@
 package com.ninise.notereminder.main;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -61,6 +62,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         }
     }
 
+    @SuppressLint("SimpleDateFormat")
     public NoteAdapter (final List<NoteModel> dataset, final Context context) {
         mDataSet = dataset;
         this.context = context;
@@ -70,11 +72,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
         final View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview, parent, false);
-        final ViewHolder vh = new ViewHolder(v);
 
-        return vh;
+        return new ViewHolder(v);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mUrlTextView.setText(mDataSet.get(holder.getAdapterPosition()).getTitle());
@@ -123,11 +125,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         super.onAttachedToRecyclerView(recyclerView);
     }
 
-    private void insert(final int position, final NoteModel data) {
-        mDataSet.add(position, data);
-        notifyItemInserted(position);
-    }
-
     private void animate(final RecyclerView.ViewHolder viewHolder) {
         final Animation animAnticipateOvershoot = AnimationUtils.loadAnimation(context,
                 R.anim.anticipate_overshoot_interpolator);
@@ -149,10 +146,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
         noteWorker.updateNote(newNote);
 
-        mDataSet.set(position, newNote);
+        alarm(newNote);
 
-        final AlarmNotification alarm = new AlarmNotification(context);
-        alarm.setOnceAlarm(time, mDataSet.get(position).getDescription());
+        mDataSet.set(position, newNote);
 
         notifyDataSetChanged();
     }
@@ -171,6 +167,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         context.startActivity(intent);
     }
 
+    @SuppressLint("InflateParams")
     private void showDateTimeDialog(final int position) {
         final LayoutInflater factory = LayoutInflater.from(context);
         final View dateAndTimePicker = factory.inflate(R.layout.date_time_picker, null);
@@ -206,5 +203,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
             }
         });
         alert.show();
+    }
+
+    private void alarm(NoteModel noteModel) {
+        final AlarmNotification alarm = new AlarmNotification(context);
+        alarm.setOnceAlarm(time, noteModel.getDescription());
     }
 }
