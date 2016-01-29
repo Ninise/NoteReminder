@@ -10,17 +10,17 @@ public class NoteWorker {
 
     private static final String TAG = "NoteWorker";
 
-    private DatabaseHandler dbHandler;
+    private final DatabaseHandler dbHandler;
 
-    public NoteWorker (Context context) {
+    public NoteWorker (final Context context) {
         this.dbHandler = new DatabaseHandler(context);
     }
 
-    public void addNote(NoteModel noteModel) {
+    public void addNote(final NoteModel noteModel) {
         this.dbHandler.addNote(noteModel);
     }
 
-    public void deleteNote(NoteModel noteModel) {
+    public void deleteNote(final NoteModel noteModel) {
         this.dbHandler.deleteNote(noteModel.getId());
     }
 
@@ -28,7 +28,7 @@ public class NoteWorker {
         this.dbHandler.deleteAllNotes();
     }
 
-    public NoteModel getNote(int id) {
+    public NoteModel getNote(final int id) {
         return this.dbHandler.getNote(id);
     }
 
@@ -36,7 +36,7 @@ public class NoteWorker {
         return this.dbHandler.getAll(Constants.FIND_NOTE);
     }
 
-    public int updateNote(NoteModel noteModel) {
+    public int updateNote(final NoteModel noteModel) {
         return this.dbHandler.updateNote(noteModel);
     }
 

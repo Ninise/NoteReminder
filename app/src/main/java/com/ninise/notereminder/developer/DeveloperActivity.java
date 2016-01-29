@@ -13,7 +13,7 @@ public class DeveloperActivity extends AppCompatActivity {
     public static final String TAG = "DeveloperActivity";
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
@@ -31,8 +31,8 @@ public class DeveloperActivity extends AppCompatActivity {
     }
 
     private void viewAboutFragment() {
-        DeveloperFragment fragment = new DeveloperFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        final  DeveloperFragment fragment = new DeveloperFragment();
+        final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frameAbout, fragment);
         fragmentTransaction.commit();
     }

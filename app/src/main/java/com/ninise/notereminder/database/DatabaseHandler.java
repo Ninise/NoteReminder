@@ -29,8 +29,8 @@ public class DatabaseHandler {
             KEY_TIME + " BIGINT" +
             ")";
 
-    private SQLiteDatabase storage;
-    private SQLiteOpenHelper helper;
+    private final SQLiteDatabase storage;
+    private final SQLiteOpenHelper helper;
 
     public DatabaseHandler(final Context ctx) {
         this.helper = new SQLiteOpenHelper(ctx, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -49,9 +49,9 @@ public class DatabaseHandler {
         this.storage = this.helper.getWritableDatabase();
     }
 
-    public void addNote(NoteModel noteModel) {
+    public void addNote(final NoteModel noteModel) {
+        final ContentValues values = new ContentValues();
 
-        ContentValues values = new ContentValues();
         values.put(KEY_TITLE, noteModel.getTitle());
         values.put(KEY_DESCRIPTION, noteModel.getDescription());
         values.put(KEY_TIME, noteModel.getTime());
@@ -59,7 +59,7 @@ public class DatabaseHandler {
         this.storage.insert(TABLE_NOTES, null, values);
     }
 
-    public void deleteNote(int id) {
+    public void deleteNote(final int id) {
         this.storage.delete(TABLE_NOTES, KEY_ID + " = " + id, null);
     }
 
@@ -67,8 +67,8 @@ public class DatabaseHandler {
         this.storage.delete(TABLE_NOTES, null, null);
     }
 
-    public NoteModel getNote(int id) {
-        Cursor cursor = this.storage.query(TABLE_NOTES,
+    public NoteModel getNote(final int id) {
+        final Cursor cursor = this.storage.query(TABLE_NOTES,
                                 new String[] {
                                         KEY_ID,
                                         KEY_TITLE,
@@ -86,7 +86,7 @@ public class DatabaseHandler {
         }
 
         assert cursor != null;
-        NoteModel noteModel = new NoteModel(
+        final NoteModel noteModel = new NoteModel(
                 Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1),
                 cursor.getString(2),
@@ -98,12 +98,12 @@ public class DatabaseHandler {
         return noteModel;
     }
 
-    public List<NoteModel> getAll(String whatFind) {
-        List<NoteModel> dataNotesList = new ArrayList<>();
+    public List<NoteModel> getAll(final String whatFind) {
+        final List<NoteModel> dataNotesList = new ArrayList<>();
 
-        String selectQuery = "SELECT * FROM " + TABLE_NOTES + " WHERE " + KEY_TIME + whatFind;
+        final String selectQuery = "SELECT * FROM " + TABLE_NOTES + " WHERE " + KEY_TIME + whatFind;
 
-        Cursor cursor = this.storage.rawQuery(selectQuery, null);
+        final Cursor cursor = this.storage.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -122,8 +122,8 @@ public class DatabaseHandler {
         return dataNotesList;
     }
 
-    public int updateNote(NoteModel noteModel) {
-        ContentValues values = new ContentValues();
+    public int updateNote(final NoteModel noteModel) {
+        final ContentValues values = new ContentValues();
 
         values.put(KEY_TITLE, noteModel.getTitle());
         values.put(KEY_DESCRIPTION, noteModel.getDescription());

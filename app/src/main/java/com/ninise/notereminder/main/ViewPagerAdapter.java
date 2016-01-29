@@ -8,14 +8,14 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     int mNumberOfTabs;
 
-    public ViewPagerAdapter(FragmentManager fm, int numbOfTabs) {
+    public ViewPagerAdapter(final FragmentManager fm, final int numbOfTabs) {
         super(fm);
 
         this.mNumberOfTabs = numbOfTabs;
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public Fragment getItem(final int position) {
         return position == 0 ? new NoteListFragment() : new ReminderListFragment();
     }
 

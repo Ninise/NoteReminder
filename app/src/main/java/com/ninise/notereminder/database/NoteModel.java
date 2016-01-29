@@ -11,18 +11,18 @@ public class NoteModel {
 
     }
 
-    public NoteModel (String title, String description) {
+    public NoteModel (final String title, final String description) {
         this.title = title;
         this.description = description;
     }
 
-    public NoteModel (int id, String title, String description) {
+    public NoteModel (final int id, final String title, final String description) {
         this.id = id;
         this.title = title;
         this.description = description;
     }
 
-    public NoteModel (int id, String title, String description, long time) {
+    public NoteModel (final int id, final String title, final String description, final long time) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -33,7 +33,7 @@ public class NoteModel {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
     }
 
@@ -41,7 +41,7 @@ public class NoteModel {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
@@ -49,7 +49,7 @@ public class NoteModel {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
@@ -57,7 +57,7 @@ public class NoteModel {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(final long time) {
         this.time = time;
     }
 

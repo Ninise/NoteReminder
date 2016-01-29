@@ -15,17 +15,17 @@ public class NoticeReceiver extends BroadcastReceiver {
     private static final String TAG = "NoticeReceiver";
 
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(final Context context, final Intent intent) {
 
-        NotificationCompat.Builder mBuilder =
+        final NotificationCompat.Builder mBuilder =
                 (NotificationCompat.Builder) new NotificationCompat.Builder(context)
                         .setSmallIcon(R.drawable.ic_nr)
                         .setContentTitle(context.getString(R.string.app_name))
                         .setContentText(intent.getStringExtra(Constants.CONTENT_TEXT));
 
-        Notification notification = mBuilder.build();
+        final Notification notification = mBuilder.build();
 
-        NotificationManager notificationManager = (NotificationManager) context
+        final NotificationManager notificationManager = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(TAG, 0, notification);
     }

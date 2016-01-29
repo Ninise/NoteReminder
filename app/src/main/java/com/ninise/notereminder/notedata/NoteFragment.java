@@ -18,7 +18,6 @@ public class NoteFragment extends Fragment {
 
     private static final String TAG = "NoteListFragment";
 
-    private Button mSaveBtn;
     private EditText mTitleEditText;
     private EditText mDescriptionEditText;
 
@@ -28,7 +27,7 @@ public class NoteFragment extends Fragment {
     private static long TIME;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         noteWorker = new NoteWorker(getActivity());
@@ -37,23 +36,23 @@ public class NoteFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_note_layout, container, false);
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
+        final View v = inflater.inflate(R.layout.fragment_note_layout, container, false);
 
         mTitleEditText = (EditText) v.findViewById(R.id.titleEditText);
         mDescriptionEditText = (EditText) v.findViewById(R.id.descriptEditText);
 
         if (getBundleNotNull()) {
             ID = getActivity().getIntent().getExtras().getInt(Constants.EXTRA_ID);
-            String title = getActivity().getIntent().getExtras().getString(Constants.EXTRA_TITLE);
-            String descript = getActivity().getIntent().getExtras().getString(Constants.EXTRA_DESCRIPT);
+            final String title = getActivity().getIntent().getExtras().getString(Constants.EXTRA_TITLE);
+            final String descript = getActivity().getIntent().getExtras().getString(Constants.EXTRA_DESCRIPT);
             TIME = getActivity().getIntent().getExtras().getLong(Constants.EXTRA_TIME);
 
             mTitleEditText.setText(title);
             mDescriptionEditText.setText(descript);
         }
 
-        mSaveBtn = (Button) v.findViewById(R.id.saveNoteBtn);
+        final Button mSaveBtn = (Button) v.findViewById(R.id.saveNoteBtn);
 
         mSaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override

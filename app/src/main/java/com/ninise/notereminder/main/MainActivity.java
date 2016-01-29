@@ -17,24 +17,18 @@ import com.ninise.notereminder.notedata.NoteActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar mToolbar;
-    private ViewPager mViewPager;
-    private ViewPagerAdapter mAdapter;
-    private TabLayout mTabLayout;
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mToolbar = (Toolbar) findViewById(R.id.tool_bar);
+        final Toolbar mToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(mToolbar);
 
+        final ViewPager mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        final TabLayout mTabLayout = (TabLayout) findViewById(R.id.tabs);
 
-        mViewPager = (ViewPager) findViewById(R.id.viewpager);
-        mTabLayout = (TabLayout) findViewById(R.id.tabs);
-
-        mAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 2);
+        final ViewPagerAdapter mAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 2);
 
         mViewPager.setAdapter(mAdapter);
 
@@ -54,14 +48,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        final int id = item.getItemId();
 
         switch (id) {
             case R.id.menu_new_note:
@@ -82,12 +76,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void switchToNoteActivity() {
-        Intent intent = new Intent(this, NoteActivity.class);
+        final Intent intent = new Intent(this, NoteActivity.class);
         startActivity(intent);
     }
 
     private void switchToDevActivity() {
-        Intent intent = new Intent(this, DeveloperActivity.class);
+        final Intent intent = new Intent(this, DeveloperActivity.class);
         startActivity(intent);
     }
 

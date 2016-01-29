@@ -16,10 +16,10 @@ public class DeveloperFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_about_layout, container, false);
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
+        final View v = inflater.inflate(R.layout.fragment_about_layout, container, false);
 
-        Button okBtn = (Button) v.findViewById(R.id.aboutOkBtn);
+        final Button okBtn = (Button) v.findViewById(R.id.aboutOkBtn);
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

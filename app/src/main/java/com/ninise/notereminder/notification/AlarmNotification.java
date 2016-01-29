@@ -9,44 +9,44 @@ import com.ninise.notereminder.Utils.Constants;
 
 public class AlarmNotification {
 
-    private Context context;
+    private final Context context;
 
-    public AlarmNotification (Context c) {
+    public AlarmNotification (final Context c) {
         this.context = c;
     }
 
-    public void setMultiAlarm(long time, int repeatTime, String description) {
-        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+    public void setMultiAlarm(final long time, final int repeatTime, final String description) {
+        final AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-        Intent intent = new Intent(context, NoticeReceiver.class);
+        final Intent intent = new Intent(context, NoticeReceiver.class);
 
         intent.putExtra(Constants.NOTICE_ACTION, Boolean.FALSE);
         intent.putExtra(Constants.CONTENT_TEXT, description);
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+        final PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 
         manager.setRepeating(AlarmManager.RTC_WAKEUP, time, repeatTime, pendingIntent);
     }
 
     public void cancelAlarm() {
-        Intent intent = new Intent(context, NoticeReceiver.class);
+        final Intent intent = new Intent(context, NoticeReceiver.class);
 
-        PendingIntent sender = PendingIntent.getBroadcast(context, 0, intent, 0);
+        final PendingIntent sender = PendingIntent.getBroadcast(context, 0, intent, 0);
 
-        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        final AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
         manager.cancel(sender);
     }
 
-    public void setOnceAlarm(long time, String description) {
-        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+    public void setOnceAlarm(final long time, final String description) {
+        final AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-        Intent intent = new Intent(context, NoticeReceiver.class);
+        final Intent intent = new Intent(context, NoticeReceiver.class);
 
         intent.putExtra(Constants.NOTICE_ACTION, Boolean.FALSE);
         intent.putExtra(Constants.CONTENT_TEXT, description);
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+        final PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 
         manager.set(AlarmManager.RTC_WAKEUP, time, pendingIntent);
     }

@@ -32,20 +32,20 @@ import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
-    List <NoteModel> mDataSet;
-    Context context;
+    final List <NoteModel> mDataSet;
+    final Context context;
     NoteWorker noteWorker;
-    SimpleDateFormat date;
+    final SimpleDateFormat date;
     long time;
 
     public class ViewHolder extends RecyclerView.ViewHolder  {
-        TextView mUrlTextView;
-        CardView cv;
-        ImageButton mDeleteBtn;
-        ImageButton mAlarmBtn;
-        TextView mToTextView;
+        final TextView mUrlTextView;
+        final CardView cv;
+        final ImageButton mDeleteBtn;
+        final ImageButton mAlarmBtn;
+        final TextView mToTextView;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
 
             cv = (CardView) itemView.findViewById(R.id.cv);
@@ -61,16 +61,17 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         }
     }
 
-    public NoteAdapter (List<NoteModel> dataset, Context context) {
+    public NoteAdapter (final List<NoteModel> dataset, final Context context) {
         mDataSet = dataset;
         this.context = context;
         date = new SimpleDateFormat("dd MMM hh:mm:ss");
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview, parent, false);
-        ViewHolder vh = new ViewHolder(v);
+    public ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
+        final View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview, parent, false);
+        final ViewHolder vh = new ViewHolder(v);
+
         return vh;
     }
 
@@ -80,7 +81,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
         if (mDataSet.get(holder.getAdapterPosition()).getTime() > 0) {
 
-            String deadline = context.getString(R.string.to_time);
+            final String deadline = context.getString(R.string.to_time);
 
             holder.mToTextView.setText(deadline + " " + date.format(mDataSet.get(holder.getAdapterPosition()).getTime()));
         }
@@ -118,48 +119,48 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
     }
 
     @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+    public void onAttachedToRecyclerView(final RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
     }
 
-    private void insert(int position, NoteModel data) {
+    private void insert(final int position, final NoteModel data) {
         mDataSet.add(position, data);
         notifyItemInserted(position);
     }
 
-    private void animate(RecyclerView.ViewHolder viewHolder) {
-        Animation animAnticipateOvershoot = AnimationUtils.loadAnimation(context,
+    private void animate(final RecyclerView.ViewHolder viewHolder) {
+        final Animation animAnticipateOvershoot = AnimationUtils.loadAnimation(context,
                 R.anim.anticipate_overshoot_interpolator);
         viewHolder.itemView.setAnimation(animAnticipateOvershoot);
     }
 
-    private void remove(int position) {
+    private void remove(final int position) {
         noteWorker = new NoteWorker(context);
         noteWorker.deleteNote(mDataSet.get(position));
         mDataSet.remove(position);
         notifyItemRemoved(position);
     }
 
-    private void update(int position) {
+    private void update(final int position) {
         noteWorker = new NoteWorker(context);
 
-        NoteModel newNote = mDataSet.get(position);
+        final NoteModel newNote = mDataSet.get(position);
         newNote.setTime(time);
 
         noteWorker.updateNote(newNote);
 
         mDataSet.set(position, newNote);
 
-        AlarmNotification alarm = new AlarmNotification(context);
+        final AlarmNotification alarm = new AlarmNotification(context);
         alarm.setOnceAlarm(time, mDataSet.get(position).getDescription());
 
         notifyDataSetChanged();
     }
 
-    private void sendData(int position) {
-        Intent intent = new Intent(context, NoteActivity.class);
+    private void sendData(final int position) {
+        final Intent intent = new Intent(context, NoteActivity.class);
 
-        Bundle bundle = new Bundle();
+        final Bundle bundle = new Bundle();
         bundle.putInt(Constants.EXTRA_ID, mDataSet.get(position).getId());
         bundle.putString(Constants.EXTRA_TITLE, mDataSet.get(position).getTitle());
         bundle.putString(Constants.EXTRA_DESCRIPT, mDataSet.get(position).getDescription());
@@ -171,10 +172,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
     }
 
     private void showDateTimeDialog(final int position) {
-        LayoutInflater factory = LayoutInflater.from(context);
+        final LayoutInflater factory = LayoutInflater.from(context);
         final View dateAndTimePicker = factory.inflate(R.layout.date_time_picker, null);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(context)
+        final AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setView(dateAndTimePicker)
                 .setCancelable(true)
                 .setPositiveButton(R.string.on_btn, new DialogInterface.OnClickListener() {

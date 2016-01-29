@@ -26,7 +26,7 @@ public class ReminderListFragment extends Fragment {
     NoteAdapter mAdapter;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mNoteWorker = new NoteWorker(getActivity());
@@ -36,17 +36,17 @@ public class ReminderListFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragments_list_layout, container, false);
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
+        final View v = inflater.inflate(R.layout.fragments_list_layout, container, false);
 
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv);
 
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        final LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(llm);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
 
-        RecyclerView.ItemAnimator itemAnimator = new DefaultItemAnimator();
+        final RecyclerView.ItemAnimator itemAnimator = new DefaultItemAnimator();
         itemAnimator.setAddDuration(1000);
         itemAnimator.setRemoveDuration(1000);
         mRecyclerView.setItemAnimator(itemAnimator);
@@ -61,8 +61,15 @@ public class ReminderListFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mNoteWorker.close();
+    }
+
     private void updateList() {
         mNoteList = mNoteWorker.getAllReminders();
         mAdapter = new NoteAdapter(mNoteList, getActivity());
     }
+
 }

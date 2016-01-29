@@ -12,14 +12,12 @@ public class NoteActivity extends AppCompatActivity {
 
     private static final String TAG = "NoteActivity";
 
-    private Toolbar mToolbar;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_layout);
 
-        mToolbar = (Toolbar) findViewById(R.id.tool_bar);
+        final Toolbar mToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.arrow_left);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -33,8 +31,8 @@ public class NoteActivity extends AppCompatActivity {
     }
 
     private void viewNoteFragment() {
-        NoteFragment fragment = new NoteFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        final NoteFragment fragment = new NoteFragment();
+        final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame, fragment);
         fragmentTransaction.commit();
     }
