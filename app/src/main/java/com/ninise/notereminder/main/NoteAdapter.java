@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -40,18 +42,24 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
     long time;
 
     public class ViewHolder extends RecyclerView.ViewHolder  {
-        final TextView mUrlTextView;
+        final TextView mTitleTextView;
         final CardView cv;
         final ImageButton mDeleteBtn;
         final ImageButton mAlarmBtn;
         final TextView mToTextView;
+
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+
+        double disp_width = (double) display.getWidth() / 1.7;
 
         public ViewHolder(final View itemView) {
             super(itemView);
 
             cv = (CardView) itemView.findViewById(R.id.cv);
 
-            mUrlTextView = (TextView) itemView.findViewById(R.id.data_title);
+            mTitleTextView = (TextView) itemView.findViewById(R.id.data_title);
+            mTitleTextView.setMaxWidth((int) disp_width);
 
             mDeleteBtn = (ImageButton) itemView.findViewById(R.id.dataBtnDelete);
 
@@ -79,7 +87,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.mUrlTextView.setText(mDataSet.get(holder.getAdapterPosition()).getTitle());
+
+        final String title = mDataSet.get(holder.getAdapterPosition()).getTitle();
+
+        holder.mTitleTextView.setText(title);
+
 
         if (mDataSet.get(holder.getAdapterPosition()).getTime() > 0) {
 
