@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.ninise.notereminder.R;
 import com.ninise.notereminder.database.NoteModel;
 import com.ninise.notereminder.database.NoteWorker;
+import com.ninise.notereminder.main.adapters.NoteAdapter;
 
 import java.util.List;
 

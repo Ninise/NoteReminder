@@ -1,4 +1,4 @@
-package com.ninise.notereminder.main;
+package com.ninise.notereminder.main.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -120,7 +120,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         holder.mAlarmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDateTimeDialog(holder.getAdapterPosition());
+                showDialog(holder.getAdapterPosition());
             }
         });
 
@@ -160,7 +160,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
         alarm(newNote);
 
-        mDataSet.set(position, newNote);
+        mDataSet.remove(position);
 
         notifyDataSetChanged();
     }
@@ -180,7 +180,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
     }
 
     @SuppressLint("InflateParams")
-    private void showDateTimeDialog(final int position) {
+    private void showDialog(final int position) {
         final LayoutInflater factory = LayoutInflater.from(context);
         final View dateAndTimePicker = factory.inflate(R.layout.date_time_picker, null);
 

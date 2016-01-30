@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.ninise.notereminder.R;
 import com.ninise.notereminder.developer.DeveloperActivity;
+import com.ninise.notereminder.main.adapters.ViewPagerAdapter;
 import com.ninise.notereminder.notedata.NoteActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         final TabLayout mTabLayout = (TabLayout) findViewById(R.id.tabs);
 
         final ViewPagerAdapter mAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 2);
-
+        mViewPager.setOffscreenPageLimit(0);
         mViewPager.setAdapter(mAdapter);
 
         final TabLayout.Tab note = mTabLayout.newTab();
