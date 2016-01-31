@@ -19,6 +19,8 @@
 
         <activity android:name=".developer.DeveloperActivity"/>
 
+        <activity android:name=".settings.SettingsActivity"/>
+
         <receiver android:name=".notification.NoticeReceiver"
                   android:enabled="true"
                   android:exported="true">

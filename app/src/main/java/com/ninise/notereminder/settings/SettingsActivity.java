@@ -1,4 +1,4 @@
-package com.ninise.notereminder.notedata;
+package com.ninise.notereminder.settings;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -8,17 +8,15 @@ import android.view.View;
 
 import com.ninise.notereminder.R;
 
-public class NoteActivity extends AppCompatActivity {
-
-    private static final String TAG = "NoteActivity";
+public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_note_layout);
+        setContentView(R.layout.activity_settings);
 
         final Toolbar mToolbar = (Toolbar) findViewById(R.id.tool_bar);
-        mToolbar.setTitle(getString(R.string.menu_new_note));
+        mToolbar.setTitle(getResources().getString(R.string.menu_settings));
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.ic_action_hardware_keyboard_backspace);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -28,13 +26,12 @@ public class NoteActivity extends AppCompatActivity {
             }
         });
 
-        viewNoteFragment();
+        viewFragment();
     }
 
-    private void viewNoteFragment() {
-        final NoteFragment fragment = new NoteFragment();
-        final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame, fragment);
+    void viewFragment() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frameSettings, new SettingsFragment());
         fragmentTransaction.commit();
     }
 }

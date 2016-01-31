@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/settingsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_data"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textSize="30sp"
+        style="?android:listSeparatorTextViewStyle"/>
+
+    <android.support.v7.widget.AppCompatCheckedTextView
+        android:id="@+id/deleteAllNotesCheckedTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/settingsTextView"
+        android:textSize="20sp"
+        android:text="@string/delete_all_notes"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:checked="false"
+       />
+
+    <android.support.v7.widget.AppCompatCheckedTextView
+        android:id="@+id/deleteAllRemindersCheckedTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_below="@id/deleteAllNotesCheckedTextView"
+        android:textSize="20sp"
+        android:text="@string/delete_all_reminders"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:checked="false"
+        />
+
+    <Button
+        android:id="@+id/settingsSaveBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/save_btn"/>
+
+</RelativeLayout>

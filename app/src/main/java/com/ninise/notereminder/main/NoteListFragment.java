@@ -31,8 +31,6 @@ public class NoteListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         mNoteWorker = new NoteWorker(getActivity());
-
-        updateList();
     }
 
     @Nullable
@@ -45,7 +43,6 @@ public class NoteListFragment extends Fragment {
         final LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(llm);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setAdapter(mAdapter);
 
         final RecyclerView.ItemAnimator itemAnimator = new DefaultItemAnimator();
         itemAnimator.setAddDuration(1000);
@@ -56,21 +53,10 @@ public class NoteListFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        updateList();
-        mRecyclerView.setAdapter(mAdapter);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mNoteWorker.close();
-    }
-
-    public void updateList() {
+    public void onStart() {
+        super.onStart();
         mNoteList = mNoteWorker.getAllNotes();
         mAdapter = new NoteAdapter(mNoteList, getActivity());
+        mRecyclerView.setAdapter(mAdapter);
     }
-
 }

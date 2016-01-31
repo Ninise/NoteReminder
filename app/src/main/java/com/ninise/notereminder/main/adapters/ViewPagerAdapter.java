@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import com.ninise.notereminder.main.NoteListFragment;
 import com.ninise.notereminder.main.ReminderListFragment;
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter{
+public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     int mNumberOfTabs;
 

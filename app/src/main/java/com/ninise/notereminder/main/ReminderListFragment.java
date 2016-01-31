@@ -31,8 +31,6 @@ public class ReminderListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         mNoteWorker = new NoteWorker(getActivity());
-
-        updateList();
     }
 
     @Nullable
@@ -56,21 +54,11 @@ public class ReminderListFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        updateList();
-        mRecyclerView.setAdapter(mAdapter);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mNoteWorker.close();
-    }
-
-    public void updateList() {
+    public void onStart() {
+        super.onStart();
         mNoteList = mNoteWorker.getAllReminders();
         mAdapter = new NoteAdapter(mNoteList, getActivity());
-    }
+        mRecyclerView.setAdapter(mAdapter);
 
+    }
 }

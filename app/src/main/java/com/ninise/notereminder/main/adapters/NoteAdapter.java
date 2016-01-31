@@ -35,6 +35,7 @@ import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
+    private static final String TAG = "NoteAdapter";
     final List <NoteModel> mDataSet;
     final Context context;
     NoteWorker noteWorker;
@@ -147,6 +148,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         noteWorker = new NoteWorker(context);
         noteWorker.deleteNote(mDataSet.get(position));
         mDataSet.remove(position);
+
+        noteWorker.close();
         notifyItemRemoved(position);
     }
 
@@ -161,6 +164,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         alarm(newNote);
 
         mDataSet.remove(position);
+
+        noteWorker.close();
 
         notifyDataSetChanged();
     }
@@ -202,7 +207,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
                         time = calendar.getTimeInMillis();
 
                         update(position);
-
                     }
                 });
 

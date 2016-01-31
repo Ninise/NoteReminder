@@ -9,14 +9,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.ninise.notereminder.R;
 import com.ninise.notereminder.developer.DeveloperActivity;
 import com.ninise.notereminder.main.adapters.ViewPagerAdapter;
 import com.ninise.notereminder.notedata.NoteActivity;
+import com.ninise.notereminder.settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivty";
+
+    TabLayout mTabLayout;
+    ViewPagerAdapter mAdapter;
+    ViewPager mViewPager;
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
@@ -26,11 +32,10 @@ public class MainActivity extends AppCompatActivity {
         final Toolbar mToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(mToolbar);
 
-        final ViewPager mViewPager = (ViewPager) findViewById(R.id.viewpager);
-        final TabLayout mTabLayout = (TabLayout) findViewById(R.id.tabs);
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        mTabLayout = (TabLayout) findViewById(R.id.tabs);
 
-        final ViewPagerAdapter mAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 2);
-        mViewPager.setOffscreenPageLimit(0);
+        mAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 2);
         mViewPager.setAdapter(mAdapter);
 
         final TabLayout.Tab note = mTabLayout.newTab();
@@ -63,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 switchToNoteActivity();
                 return true;
             case R.id.menu_settings:
-                Toast.makeText(getApplicationContext(), R.string.menu_settings, Toast.LENGTH_SHORT).show();
+                switchToSettingsActivity();
                 return true;
             case R.id.menu_developer:
                 switchToDevActivity();
@@ -83,6 +88,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void switchToDevActivity() {
         final Intent intent = new Intent(this, DeveloperActivity.class);
+        startActivity(intent);
+    }
+
+    private void switchToSettingsActivity() {
+        final Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 

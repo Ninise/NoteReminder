@@ -18,6 +18,7 @@ public class DeveloperActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        toolbar.setTitle(getString(R.string.menu_developer));
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_action_hardware_keyboard_backspace);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -26,6 +27,7 @@ public class DeveloperActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
 
         viewAboutFragment();
     }
