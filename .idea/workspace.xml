@@ -21,7 +21,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/anim/anticipate_overshoot_interpolator.xml" afterPath="$PROJECT_DIR$/app/src/main/res/anim/anticipate_overshoot_interpolator.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notedata/NoteFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notedata/NoteFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NoteReminder.iws" />
@@ -63,14 +63,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/main/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32365146">
+            <state vertical-scroll-proportion="0.0">
               <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
               <folding>
                 <element signature="e#1635#1661#0" expanded="true" />
                 <element signature="e#2335#2336#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NoteFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notedata/NoteFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8215768">
+              <caret line="148" column="41" selection-start-line="148" selection-start-column="41" selection-end-line="148" selection-end-column="41" />
+              <folding>
+                <element signature="e#2597#2637#0" expanded="true" />
+                <element signature="e#2674#2701#0" expanded="true" />
+                <element signature="e#2780#2926#0" expanded="true" />
+                <element signature="e#2925#2926#0" expanded="true" />
+                <element signature="e#4426#4441#0" expanded="true" />
+                <element signature="e#5247#5274#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1723,13 +1740,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/database/NoteWorker.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/main/adapters/NoteAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_cardview.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notedata/NoteFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_note_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/main/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/anim/anticipate_overshoot_interpolator.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notedata/NoteFragment.java" />
       </list>
     </option>
   </component>
@@ -2811,24 +2828,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notedata/NoteFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.526971">
-          <caret line="73" column="70" selection-start-line="73" selection-start-column="70" selection-end-line="73" selection-end-column="70" />
-          <folding>
-            <element signature="e#2484#2524#0" expanded="true" />
-            <element signature="e#2638#2665#0" expanded="true" />
-            <element signature="e#2744#2890#0" expanded="true" />
-            <element signature="e#2889#2890#0" expanded="true" />
-            <element signature="e#3766#3767#0" expanded="true" />
-            <element signature="e#3836#3837#0" expanded="true" />
-            <element signature="e#4390#4405#0" expanded="true" />
-            <element signature="e#4407#5246#0" expanded="true" />
-            <element signature="e#5245#5246#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2849,11 +2848,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/main/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32365146">
+        <state vertical-scroll-proportion="0.0">
           <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
           <folding>
             <element signature="e#1635#1661#0" expanded="true" />
             <element signature="e#2335#2336#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notedata/NoteFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8215768">
+          <caret line="148" column="41" selection-start-line="148" selection-start-column="41" selection-end-line="148" selection-end-column="41" />
+          <folding>
+            <element signature="e#2597#2637#0" expanded="true" />
+            <element signature="e#2674#2701#0" expanded="true" />
+            <element signature="e#2780#2926#0" expanded="true" />
+            <element signature="e#2925#2926#0" expanded="true" />
+            <element signature="e#4426#4441#0" expanded="true" />
+            <element signature="e#5247#5274#0" expanded="true" />
           </folding>
         </state>
       </provider>

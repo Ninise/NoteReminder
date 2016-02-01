@@ -31,11 +31,14 @@ public class NoteFragment extends Fragment {
 
     private EditText mTitleEditText;
     private EditText mDescriptionEditText;
+    private TextView mTimeTextView;
 
     private NoteWorker noteWorker;
 
     private static int ID;
     private static long TIME;
+
+    private SimpleDateFormat date;
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class NoteFragment extends Fragment {
 
         noteWorker = new NoteWorker(getActivity());
 
+        date = new SimpleDateFormat("dd MMM hh:mm:ss");
     }
 
     @Nullable
@@ -66,11 +70,10 @@ public class NoteFragment extends Fragment {
 
         final Button mSetTimeBtn = (Button) v.findViewById(R.id.setAlarmBtn);
 
-        final TextView mTimeTextView = (TextView) v.findViewById(R.id.timeTextView);
+        mTimeTextView = (TextView) v.findViewById(R.id.timeTextView);
 
         if (TIME > 0) {
             mSetTimeBtn.setText(getString(R.string.change_time_reminder));
-            SimpleDateFormat date = new SimpleDateFormat("dd MMM hh:mm:ss");
             mTimeTextView.setText(getString(R.string.to_time) + " " + date.format(TIME));
         }
 
@@ -142,6 +145,7 @@ public class NoteFragment extends Fragment {
                                 timePicker.getCurrentMinute());
 
                         TIME = calendar.getTimeInMillis();
+                        mTimeTextView.setText(getString(R.string.to_time) + " " + date.format(TIME));
                         alarm(getNote());
                     }
                 });
