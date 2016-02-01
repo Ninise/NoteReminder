@@ -11,7 +11,7 @@
     <string name="app_version">v 0.3</string>
     <string name="on_btn">Ok</string>
     <string name="created_by">Created by Nikitin N.</string>
-    <string name="menu_developer">Developer</string>
+    <string name="menu_developer">About</string>
     <string name="to_time">Deadline: </string>
     <string name="delete_all_notes">Delete all notes</string>
     <string name="delete_all_reminders">Delete all reminders</string>
