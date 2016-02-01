@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.ninise.notereminder.R;
@@ -20,6 +21,7 @@ import com.ninise.notereminder.database.NoteModel;
 import com.ninise.notereminder.database.NoteWorker;
 import com.ninise.notereminder.notification.AlarmNotification;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -61,7 +63,16 @@ public class NoteFragment extends Fragment {
             mDescriptionEditText.setText(descript);
         }
 
+
         final Button mSetTimeBtn = (Button) v.findViewById(R.id.setAlarmBtn);
+
+        final TextView mTimeTextView = (TextView) v.findViewById(R.id.timeTextView);
+
+        if (TIME > 0) {
+            mSetTimeBtn.setText(getString(R.string.change_time_reminder));
+            SimpleDateFormat date = new SimpleDateFormat("dd MMM hh:mm:ss");
+            mTimeTextView.setText(getString(R.string.to_time) + " " + date.format(TIME));
+        }
 
         mSetTimeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
