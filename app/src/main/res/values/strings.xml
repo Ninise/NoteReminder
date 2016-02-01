@@ -16,4 +16,5 @@
     <string name="delete_all_notes">Delete all notes</string>
     <string name="delete_all_reminders">Delete all reminders</string>
     <string name="delete_data">Delete data</string>
+    <string name="set_as_reminder">Set as reminder</string>
 </resources>
