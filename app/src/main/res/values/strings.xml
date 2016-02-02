@@ -18,4 +18,5 @@
     <string name="delete_data">Delete data</string>
     <string name="set_as_reminder">Set as reminder</string>
     <string name="change_time_reminder">Change the reminder time</string>
+    <string name="back_pressed">Please click BACK again to exit</string>
 </resources>

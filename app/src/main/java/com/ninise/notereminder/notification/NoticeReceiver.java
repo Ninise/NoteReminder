@@ -31,6 +31,8 @@ public class NoticeReceiver extends BroadcastReceiver {
         final NotificationManager notificationManager = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(TAG, 0, notification);
+
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
 }
