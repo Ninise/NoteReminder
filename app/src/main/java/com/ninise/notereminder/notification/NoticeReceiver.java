@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.media.RingtoneManager;
 import android.support.v7.app.NotificationCompat;
 
 import com.ninise.notereminder.R;
@@ -21,7 +22,9 @@ public class NoticeReceiver extends BroadcastReceiver {
                 (NotificationCompat.Builder) new NotificationCompat.Builder(context)
                         .setSmallIcon(R.drawable.ic_nr)
                         .setContentTitle(context.getString(R.string.app_name))
-                        .setContentText(intent.getStringExtra(Constants.CONTENT_TEXT));
+                        .setContentText(intent.getStringExtra(Constants.CONTENT_TEXT))
+                        .setVibrate(new long[]{1000, 1000, 1000, 1000, 1000})
+                        .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
 
         final Notification notification = mBuilder.build();
 
