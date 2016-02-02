@@ -11,6 +11,9 @@ public class Constants {
     public static final String NOTICE_ACTION = "com.ninise.notereminder.NOTICE";
 
     public static final String CONTENT_TEXT = "notice";
+    public static final String CONTENT_TITLE = "title";
+    public static final String CONTENT_TIME = "time";
+    public static final String CONTENT_ID = "id";
 
     public static final String FIND_NOTE = " = 0";
     public static final String FIND_REMINDER = " != 0";

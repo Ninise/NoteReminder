@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.ninise.notereminder.Utils.Constants;
+import com.ninise.notereminder.database.NoteModel;
 
 public class AlarmNotification {
 
@@ -15,13 +16,13 @@ public class AlarmNotification {
         this.context = c;
     }
 
-    public void setMultiAlarm(final long time, final int repeatTime, final String description) {
+    public void setMultiAlarm(final long time, final int repeatTime, final NoteModel noteModel) {
         final AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
         final Intent intent = new Intent(context, NoticeReceiver.class);
 
         intent.putExtra(Constants.NOTICE_ACTION, Boolean.FALSE);
-        intent.putExtra(Constants.CONTENT_TEXT, description);
+        intent.putExtra(Constants.EXTRA_DESCRIPT, noteModel.getDescription());
 
         final PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 
@@ -38,13 +39,16 @@ public class AlarmNotification {
         manager.cancel(sender);
     }
 
-    public void setOnceAlarm(final long time, final String description) {
+    public void setOnceAlarm(final long time, final NoteModel noteModel) {
         final AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
         final Intent intent = new Intent(context, NoticeReceiver.class);
 
         intent.putExtra(Constants.NOTICE_ACTION, Boolean.FALSE);
-        intent.putExtra(Constants.CONTENT_TEXT, description);
+        intent.putExtra(Constants.EXTRA_DESCRIPT, noteModel.getDescription());
+        intent.putExtra(Constants.EXTRA_TITLE, noteModel.getTitle());
+        intent.putExtra(Constants.EXTRA_TIME, noteModel.getTime());
+        intent.putExtra(Constants.EXTRA_ID, noteModel.getId());
 
         final PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 

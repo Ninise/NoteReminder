@@ -163,6 +163,6 @@ public class NoteFragment extends Fragment {
 
     private void alarm(NoteModel noteModel) {
         final AlarmNotification alarm = new AlarmNotification(getActivity());
-        alarm.setOnceAlarm(TIME, noteModel.getDescription());
+        alarm.setOnceAlarm(TIME, noteModel);
     }
 }
