@@ -38,4 +38,10 @@ public class DeveloperActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frameAbout, fragment);
         fragmentTransaction.commit();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+    }
 }

@@ -120,16 +120,19 @@ public class MainActivity extends AppCompatActivity {
     private void switchToNoteActivity() {
         final Intent intent = new Intent(this, NoteActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 
     private void switchToDevActivity() {
         final Intent intent = new Intent(this, DeveloperActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 
     private void switchToSettingsActivity() {
         final Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 
     private void closeApp() {
