@@ -8,8 +8,8 @@
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="save_btn">Save</string>
-    <string name="app_version">v 0.4</string>
-    <string name="on_btn">Ok</string>
+    <string name="app_version">v 0.5</string>
+    <string name="on_btn">OK</string>
     <string name="created_by">Created by Nikitin N.</string>
     <string name="menu_developer">About</string>
     <string name="to_time">Deadline: </string>
