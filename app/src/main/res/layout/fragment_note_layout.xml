@@ -59,15 +59,19 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:text="@string/set_as_reminder"
+        style="@style/RobotoButtonStyle"
         />
 
     <Button
         android:id="@+id/saveNoteBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_below="@+id/setAlarmBtn"
-        android:text="@string/save_btn"/>
+        android:text="@string/save_btn"
+        style="@style/RobotoButtonStyle"
+        />
 
 </RelativeLayout>

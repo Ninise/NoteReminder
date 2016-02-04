@@ -50,6 +50,7 @@
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:layout_alignParentBottom="true"
-        android:text="@string/save_btn"/>
+        android:text="@string/save_btn"
+        style="@style/RobotoButtonStyle"/>
 
 </RelativeLayout>
