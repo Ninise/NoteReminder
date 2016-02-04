@@ -6,19 +6,22 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
+        <item name="android:buttonStyle">@style/RobotoButtonStyle</item>
     </style>
 
     <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
         <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textColor">#FAA463</item>
-        <item name="android:shadowColor">#000000</item>
-        <item name="android:shadowDx">4</item>
-        <item name="android:shadowDy">4</item>
-        <item name="android:shadowRadius">4</item>
+        <item name="android:textColor">@color/colorGrey</item>
     </style>
 
     <style name="CardViewStyle.Light" parent="CardView">
         <item name="cardBackgroundColor">@color/colorWhite</item>
+    </style>
+
+    <style name="RobotoButtonStyle" parent="android:Widget.Material.Light.Button">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
 </resources>
