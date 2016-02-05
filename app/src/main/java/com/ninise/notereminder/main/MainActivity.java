@@ -56,7 +56,24 @@ public class MainActivity extends AppCompatActivity {
         mTabLayout.setTabTextColors(ContextCompat.getColorStateList(this, R.drawable.tab_selector));
         mTabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.indicator));
 
+        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mViewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+
 
         final FloatingActionButton mAddNoteBtn = (FloatingActionButton) findViewById(R.id.addNoteBtn);
         mAddNoteBtn.setOnClickListener(new View.OnClickListener() {
