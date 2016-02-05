@@ -17,4 +17,7 @@ public class Constants {
 
     public static final String FIND_NOTE = " = 0";
     public static final String FIND_REMINDER = " != 0";
+
+    public static final String DELETE_NOTES = " = 0";
+    public static final String DELETE_REMINDERS = " > 0";
 }
