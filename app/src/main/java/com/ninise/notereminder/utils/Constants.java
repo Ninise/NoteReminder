@@ -1,4 +1,4 @@
-package com.ninise.notereminder.Utils;
+package com.ninise.notereminder.utils;
 
 
 public class Constants {
