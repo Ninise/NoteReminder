@@ -24,8 +24,13 @@ public class NoteWorker {
         this.dbHandler.deleteNote(noteModel.getId());
     }
 
-    public void deleteAllNotes() {
-        this.dbHandler.deleteAllNotes();
+    public void deleteAll(String whereClause) {
+        if (whereClause.equals(Constants.DELETE_NOTES)) {
+            this.dbHandler.deleteAll(Constants.CONTENT_TIME + Constants.DELETE_NOTES);
+        } else {
+            this.dbHandler.deleteAll(Constants.CONTENT_TIME + Constants.DELETE_REMINDERS);
+        }
+
     }
 
     public NoteModel getNote(final int id) {

@@ -63,8 +63,8 @@ public class DatabaseHandler {
         this.storage.delete(TABLE_NOTES, KEY_ID + " = " + id, null);
     }
 
-    public void deleteAllNotes() {
-        this.storage.delete(TABLE_NOTES, null, null);
+    public void deleteAll(String whereClause) {
+        this.storage.delete(TABLE_NOTES, whereClause, null);
     }
 
     public NoteModel getNote(final int id) {
