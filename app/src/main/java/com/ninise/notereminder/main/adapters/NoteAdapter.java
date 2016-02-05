@@ -17,7 +17,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.ninise.notereminder.R;
-import com.ninise.notereminder.Utils.Constants;
+import com.ninise.notereminder.utils.Constants;
 import com.ninise.notereminder.database.NoteModel;
 import com.ninise.notereminder.database.NoteWorker;
 import com.ninise.notereminder.notedata.NoteActivity;

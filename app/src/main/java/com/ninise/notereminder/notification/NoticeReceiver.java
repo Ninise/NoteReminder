@@ -10,7 +10,7 @@ import android.media.RingtoneManager;
 import android.support.v7.app.NotificationCompat;
 
 import com.ninise.notereminder.R;
-import com.ninise.notereminder.Utils.Constants;
+import com.ninise.notereminder.utils.Constants;
 import com.ninise.notereminder.notedata.NoteActivity;
 
 public class NoticeReceiver extends BroadcastReceiver {

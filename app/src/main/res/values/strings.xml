@@ -19,4 +19,5 @@
     <string name="set_as_reminder">Set as reminder</string>
     <string name="change_time_reminder">Change the reminder time</string>
     <string name="back_pressed">Please click BACK again to exit</string>
+    <string name="note_not_created">Note not created</string>
 </resources>

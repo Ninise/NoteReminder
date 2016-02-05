@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +15,14 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.ninise.notereminder.R;
-import com.ninise.notereminder.Utils.Constants;
+import com.ninise.notereminder.utils.Constants;
 import com.ninise.notereminder.database.NoteModel;
 import com.ninise.notereminder.database.NoteWorker;
 import com.ninise.notereminder.notification.AlarmNotification;
+import com.ninise.notereminder.utils.Utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -40,6 +43,7 @@ public class NoteFragment extends Fragment {
 
     private SimpleDateFormat date;
 
+    @SuppressLint("SimpleDateFormat")
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +53,7 @@ public class NoteFragment extends Fragment {
         date = new SimpleDateFormat("dd MMM hh:mm:ss");
     }
 
+    @SuppressLint("SetTextI18n")
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
@@ -77,6 +82,11 @@ public class NoteFragment extends Fragment {
             mTimeTextView.setText(getString(R.string.to_time) + " " + date.format(TIME));
         }
 
+        if (Utils.isTextViewEmpty(mTitleEditText) && Utils.isTextViewEmpty(mDescriptionEditText)) {
+            mSetTimeBtn.setEnabled(false);
+            mSetTimeBtn.setVisibility(View.GONE);
+        }
+
         mSetTimeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,11 +100,15 @@ public class NoteFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!getBundleNotNull()) {
-                    if (!mTitleEditText.getText().toString().equals("")) {
+                    if (!Utils.isTextViewEmpty(mTitleEditText)) {
                         noteWorker.addNote(getNote());
+                        Log.d(TAG, "Add note");
                     }
-                } else {
+                } if (Utils.isTextViewEmpty(mTitleEditText) && Utils.isTextViewEmpty(mDescriptionEditText)) {
+                    Toast.makeText(getActivity(), R.string.note_not_created, Toast.LENGTH_SHORT).show();
+                } if (!Utils.isTextViewEmpty(mTitleEditText) && !Utils.isTextViewEmpty(mDescriptionEditText)) {
                     noteWorker.updateNote(getNote());
+                    Log.d(TAG, "Update note");
                 }
 
                 getActivity().onBackPressed();
@@ -133,6 +147,7 @@ public class NoteFragment extends Fragment {
                 .setView(dateAndTimePicker)
                 .setCancelable(true)
                 .setPositiveButton(R.string.on_btn, new DialogInterface.OnClickListener() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         DatePicker datePicker = (DatePicker) dateAndTimePicker.findViewById(R.id.date_picker);

@@ -2,7 +2,7 @@ package com.ninise.notereminder.database;
 
 import android.content.Context;
 
-import com.ninise.notereminder.Utils.Constants;
+import com.ninise.notereminder.utils.Constants;
 
 import java.util.List;
 

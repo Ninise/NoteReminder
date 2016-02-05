@@ -5,7 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 
-import com.ninise.notereminder.Utils.Constants;
+import com.ninise.notereminder.utils.Constants;
 import com.ninise.notereminder.database.NoteModel;
 
 public class AlarmNotification {
