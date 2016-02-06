@@ -141,6 +141,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         bundle.putString(Constants.EXTRA_TITLE, mDataSet.get(position).getTitle());
         bundle.putString(Constants.EXTRA_DESCRIPT, mDataSet.get(position).getDescription());
         bundle.putLong(Constants.EXTRA_TIME, mDataSet.get(position).getTime());
+        bundle.putInt(Constants.EXTRA_REQUEST, mDataSet.get(position).getRequest());
 
         intent.putExtras(bundle);
 

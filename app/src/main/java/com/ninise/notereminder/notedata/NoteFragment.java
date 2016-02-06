@@ -40,6 +40,7 @@ public class NoteFragment extends Fragment {
 
     private static int ID;
     private static long TIME;
+    private static int REQUEST;
 
     private SimpleDateFormat date;
 
@@ -67,9 +68,12 @@ public class NoteFragment extends Fragment {
             final String title = getActivity().getIntent().getExtras().getString(Constants.EXTRA_TITLE);
             final String descript = getActivity().getIntent().getExtras().getString(Constants.EXTRA_DESCRIPT);
             TIME = getActivity().getIntent().getExtras().getLong(Constants.EXTRA_TIME);
+            REQUEST = getActivity().getIntent().getExtras().getInt(Constants.EXTRA_REQUEST);
 
             mTitleEditText.setText(title);
             mDescriptionEditText.setText(descript);
+
+            Log.d(TAG, title + "  " + descript +  "  " + REQUEST);
         }
 
 
@@ -102,11 +106,13 @@ public class NoteFragment extends Fragment {
                 if (!getBundleNotNull()) {
 
                     if (!Utils.isTextViewEmpty(mTitleEditText)) {
+                        REQUEST = Utils.generateRequest();
                         noteWorker.addNote(getNote());
+                        Log.d(TAG, getNote().toString());
                     }
 
                 } else {
-                        noteWorker.updateNote(getNote());
+                    noteWorker.updateNote(getNote());
                 }
 
                 if (Utils.isTextViewEmpty(mTitleEditText) && Utils.isTextViewEmpty(mDescriptionEditText)) {
@@ -125,8 +131,8 @@ public class NoteFragment extends Fragment {
                 ID,
                 mTitleEditText.getText().toString(),
                 mDescriptionEditText.getText().toString(),
-                TIME
-        );
+                TIME,
+                REQUEST);
     }
 
     private boolean getBundleNotNull() {
@@ -148,7 +154,7 @@ public class NoteFragment extends Fragment {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
                 .setView(dateAndTimePicker)
                 .setCancelable(true)
-                .setPositiveButton(R.string.on_btn, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.ok_btn, new DialogInterface.OnClickListener() {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -165,6 +171,12 @@ public class NoteFragment extends Fragment {
                         mTimeTextView.setText(getString(R.string.to_time) + " " + date.format(TIME));
                         alarm(getNote());
                     }
+                })
+                .setNegativeButton(R.string.cancel_btn, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
                 });
 
         final AlertDialog alert = builder.create();
@@ -173,6 +185,9 @@ public class NoteFragment extends Fragment {
             public void onShow(DialogInterface dialog) {
                 Button positiveBtn = alert.getButton(DialogInterface.BUTTON_POSITIVE);
                 positiveBtn.setTextSize(30);
+
+                Button negativeBtn = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+                negativeBtn.setTextSize(30);
             }
         });
         alert.show();

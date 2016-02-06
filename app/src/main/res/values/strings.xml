@@ -9,7 +9,7 @@
     <string name="description">Description</string>
     <string name="save_btn">Save</string>
     <string name="app_version">v 0.5</string>
-    <string name="on_btn">OK</string>
+    <string name="ok_btn">OK</string>
     <string name="created_by">Created by Nikitin N.</string>
     <string name="menu_developer">About</string>
     <string name="to_time">Deadline: </string>
@@ -20,4 +20,5 @@
     <string name="change_time_reminder">Change the reminder time</string>
     <string name="back_pressed">Please click BACK again to exit</string>
     <string name="note_not_created">Note not created</string>
+    <string name="cancel_btn">Cancel</string>
 </resources>

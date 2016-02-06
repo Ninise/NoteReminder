@@ -15,18 +15,22 @@ public class DatabaseHandler {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "notereminder";
+
     private static final String TABLE_NOTES = "notes";
+
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";
     private static final String KEY_DESCRIPTION = "description";
     private static final String KEY_TIME = "time";
+    private static final String KEY_REQUEST = "request";
 
     private static final String CREATE_NOTES_TABLE = "CREATE TABLE " +
             TABLE_NOTES + "(" +
             KEY_ID + " INTEGER PRIMARY KEY," +
             KEY_TITLE + " TEXT," +
             KEY_DESCRIPTION + " TEXT," +
-            KEY_TIME + " BIGINT" +
+            KEY_TIME + " BIGINT," +
+            KEY_REQUEST + " INTEGER" +
             ")";
 
     private final SQLiteDatabase storage;
@@ -55,6 +59,7 @@ public class DatabaseHandler {
         values.put(KEY_TITLE, noteModel.getTitle());
         values.put(KEY_DESCRIPTION, noteModel.getDescription());
         values.put(KEY_TIME, noteModel.getTime());
+        values.put(KEY_REQUEST, noteModel.getRequest());
 
         this.storage.insert(TABLE_NOTES, null, values);
     }
@@ -73,7 +78,8 @@ public class DatabaseHandler {
                                         KEY_ID,
                                         KEY_TITLE,
                                         KEY_DESCRIPTION,
-                                        KEY_TIME
+                                        KEY_TIME,
+                                        KEY_REQUEST
                                 }, KEY_ID + " = ?",
                                 new String[] { String.valueOf(id) },
                                 null,
@@ -90,8 +96,8 @@ public class DatabaseHandler {
                 Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1),
                 cursor.getString(2),
-                Long.parseLong(cursor.getString(3))
-        );
+                Long.parseLong(cursor.getString(3)),
+                Integer.parseInt(cursor.getString(4)));
 
         cursor.close();
 
@@ -112,6 +118,7 @@ public class DatabaseHandler {
                   noteModel.setTitle(cursor.getString(1));
                   noteModel.setDescription(cursor.getString(2));
                   noteModel.setTime(Long.parseLong(cursor.getString(3)));
+                  noteModel.setRequest(Integer.parseInt(cursor.getString(4)));
 
                 dataNotesList.add(noteModel);
             } while (cursor.moveToNext());

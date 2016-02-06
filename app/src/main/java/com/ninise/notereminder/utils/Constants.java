@@ -7,6 +7,7 @@ public class Constants {
     public static final String EXTRA_TITLE = "TITLE";
     public static final String EXTRA_DESCRIPT = "DESCRIPTION";
     public static final String EXTRA_TIME = "TIME";
+    public static final String EXTRA_REQUEST = "request";
 
     public static final String NOTICE_ACTION = "com.ninise.notereminder.NOTICE";
 

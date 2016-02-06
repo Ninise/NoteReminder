@@ -26,8 +26,9 @@ public class NoticeReceiver extends BroadcastReceiver {
         notificationIntent.putExtra(Constants.EXTRA_TITLE, intent.getStringExtra(Constants.EXTRA_TITLE));
         notificationIntent.putExtra(Constants.EXTRA_TIME, intent.getLongExtra(Constants.EXTRA_TIME, 0));
         notificationIntent.putExtra(Constants.EXTRA_ID, intent.getIntExtra(Constants.EXTRA_ID, 0));
+        notificationIntent.putExtra(Constants.EXTRA_REQUEST, intent.getIntExtra(Constants.EXTRA_REQUEST, 0));
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, intent.getIntExtra(Constants.EXTRA_REQUEST, 0),
                 notificationIntent, 0);
 
         final NotificationCompat.Builder mBuilder =
@@ -44,6 +45,8 @@ public class NoticeReceiver extends BroadcastReceiver {
         final NotificationManager notificationManager = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(TAG, 0, notification);
+
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
 }
