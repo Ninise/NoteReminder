@@ -6,27 +6,31 @@ public class NoteModel {
     private String title;
     private String description;
     private long time;
+    private int request;
 
     public NoteModel () {
 
     }
 
-    public NoteModel (final String title, final String description) {
+    public NoteModel(final String title, final String description, int request) {
         this.title = title;
         this.description = description;
+        this.request = request;
     }
 
-    public NoteModel (final int id, final String title, final String description) {
+    public NoteModel(final int id, final String title, final String description, int request) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.request = request;
     }
 
-    public NoteModel (final int id, final String title, final String description, final long time) {
+    public NoteModel(final int id, final String title, final String description, final long time, int request) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.time = time;
+        this.request = request;
     }
 
     public int getId() {
@@ -61,13 +65,22 @@ public class NoteModel {
         this.time = time;
     }
 
+    public int getRequest() {
+        return request;
+    }
+
+    public void setRequest(int request) {
+        this.request = request;
+    }
+
     @Override
     public String toString() {
-        return "NoteModel {" +
-                "id = " + id +
-                ", title = '" + title + '\'' +
-                ", description = '" + description + '\'' +
-                ", time = " + time +
+        return "NoteModel{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", time=" + time +
+                ", request=" + request +
                 '}';
     }
 }
