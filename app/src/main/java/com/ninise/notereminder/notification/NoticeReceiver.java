@@ -10,8 +10,8 @@ import android.media.RingtoneManager;
 import android.support.v7.app.NotificationCompat;
 
 import com.ninise.notereminder.R;
-import com.ninise.notereminder.utils.Constants;
 import com.ninise.notereminder.notedata.NoteActivity;
+import com.ninise.notereminder.utils.Constants;
 
 public class NoticeReceiver extends BroadcastReceiver {
 
@@ -44,8 +44,6 @@ public class NoticeReceiver extends BroadcastReceiver {
         final NotificationManager notificationManager = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(TAG, 0, notification);
-
-        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
 }

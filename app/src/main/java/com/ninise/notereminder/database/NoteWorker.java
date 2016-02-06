@@ -30,7 +30,6 @@ public class NoteWorker {
         } else {
             this.dbHandler.deleteAll(Constants.CONTENT_TIME + Constants.DELETE_REMINDERS);
         }
-
     }
 
     public NoteModel getNote(final int id) {

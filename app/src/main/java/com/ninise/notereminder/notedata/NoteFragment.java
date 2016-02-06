@@ -18,10 +18,10 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.ninise.notereminder.R;
-import com.ninise.notereminder.utils.Constants;
 import com.ninise.notereminder.database.NoteModel;
 import com.ninise.notereminder.database.NoteWorker;
 import com.ninise.notereminder.notification.AlarmNotification;
+import com.ninise.notereminder.utils.Constants;
 import com.ninise.notereminder.utils.Utils;
 
 import java.text.SimpleDateFormat;
@@ -30,7 +30,7 @@ import java.util.GregorianCalendar;
 
 public class NoteFragment extends Fragment {
 
-    private static final String TAG = "NoteListFragment";
+    private static final String TAG = "NoteFragment";
 
     private EditText mTitleEditText;
     private EditText mDescriptionEditText;
@@ -100,15 +100,17 @@ public class NoteFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!getBundleNotNull()) {
+
                     if (!Utils.isTextViewEmpty(mTitleEditText)) {
                         noteWorker.addNote(getNote());
-                        Log.d(TAG, "Add note");
                     }
-                } if (Utils.isTextViewEmpty(mTitleEditText) && Utils.isTextViewEmpty(mDescriptionEditText)) {
+
+                } else {
+                        noteWorker.updateNote(getNote());
+                }
+
+                if (Utils.isTextViewEmpty(mTitleEditText) && Utils.isTextViewEmpty(mDescriptionEditText)) {
                     Toast.makeText(getActivity(), R.string.note_not_created, Toast.LENGTH_SHORT).show();
-                } if (!Utils.isTextViewEmpty(mTitleEditText) && !Utils.isTextViewEmpty(mDescriptionEditText)) {
-                    noteWorker.updateNote(getNote());
-                    Log.d(TAG, "Update note");
                 }
 
                 getActivity().onBackPressed();
@@ -179,5 +181,11 @@ public class NoteFragment extends Fragment {
     private void alarm(NoteModel noteModel) {
         final AlarmNotification alarm = new AlarmNotification(getActivity());
         alarm.setOnceAlarm(TIME, noteModel);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        noteWorker.close();
     }
 }
