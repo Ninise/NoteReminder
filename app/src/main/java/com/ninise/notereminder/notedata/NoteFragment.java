@@ -183,11 +183,8 @@ public class NoteFragment extends Fragment {
         alert.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
             public void onShow(DialogInterface dialog) {
-                Button positiveBtn = alert.getButton(DialogInterface.BUTTON_POSITIVE);
-                positiveBtn.setTextSize(30);
-
-                Button negativeBtn = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
-                negativeBtn.setTextSize(30);
+                alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextSize(30);
+                alert.getButton(DialogInterface.BUTTON_NEGATIVE).setTextSize(30);
             }
         });
         alert.show();
@@ -195,6 +192,7 @@ public class NoteFragment extends Fragment {
 
     private void alarm(NoteModel noteModel) {
         final AlarmNotification alarm = new AlarmNotification(getActivity());
+        Log.d(TAG, "setAlarm");
         alarm.setOnceAlarm(TIME, noteModel);
     }
 

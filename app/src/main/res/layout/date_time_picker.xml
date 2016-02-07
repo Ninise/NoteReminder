@@ -12,12 +12,15 @@
         android:calendarViewShown="true"
         android:spinnersShown="false"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        style="@style/RobotoTextViewStyle"/>
 
     <TimePicker
         android:id="@+id/time_picker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/date_picker"/>
+        android:layout_below="@id/date_picker"
+        style="@style/RobotoTextViewStyle"/>
+
 
 </RelativeLayout>

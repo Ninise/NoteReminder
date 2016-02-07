@@ -21,4 +21,6 @@
     <string name="back_pressed">Please click BACK again to exit</string>
     <string name="note_not_created">Note not created</string>
     <string name="cancel_btn">Cancel</string>
+    <string name="sound_and_vibrate">Sound and Vibrate</string>
+    <string name="set_vibrate">Vibrate</string>
 </resources>

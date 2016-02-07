@@ -5,7 +5,7 @@
               android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/settingsTextView"
+        android:id="@+id/deleteDataTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/delete_data"
@@ -14,32 +14,75 @@
         android:textSize="30sp"
         style="?android:listSeparatorTextViewStyle"/>
 
-    <android.support.v7.widget.AppCompatCheckedTextView
-        android:id="@+id/deleteAllNotesCheckedTextView"
-        android:layout_width="match_parent"
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/deleteAllNotesTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/settingsTextView"
-        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@id/deleteDataTextView"
         android:text="@string/delete_all_notes"
-        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
-        android:checked="false"
-       />
+        android:textSize="20sp"/>
 
-    <android.support.v7.widget.AppCompatCheckedTextView
-        android:id="@+id/deleteAllRemindersCheckedTextView"
-        android:layout_width="match_parent"
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/deleteAllNotesChecked"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_below="@id/deleteAllNotesCheckedTextView"
+        android:layout_marginRight="5dp"
+        android:layout_below="@id/deleteDataTextView"
+        android:layout_alignParentRight="true"
+        />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/deleteAllRemindersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@id/deleteAllNotesTextView"
         android:textSize="20sp"
         android:text="@string/delete_all_reminders"
-        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
-        android:checked="false"
+        />
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/deleteAllRemindersChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_below="@id/deleteAllNotesTextView"
+        android:layout_alignParentRight="true"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/soundAndVibrTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/deleteAllRemindersChecked"
+        android:text="@string/sound_and_vibrate"
+        android:textSize="30sp"
+        style="?android:listSeparatorTextViewStyle"
+        />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/vibrateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/soundAndVibrTextView"
+        android:text="@string/set_vibrate"
+        android:textSize="20sp"
+        />
+
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/vibrateSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/soundAndVibrTextView"
         />
 
     <Button
