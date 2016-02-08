@@ -11,6 +11,7 @@ import android.support.v7.app.NotificationCompat;
 
 import com.ninise.notereminder.R;
 import com.ninise.notereminder.notedata.NoteActivity;
+import com.ninise.notereminder.settings.preferences.SingletonSharedPreferences;
 import com.ninise.notereminder.utils.Constants;
 
 public class NoticeReceiver extends BroadcastReceiver {
@@ -31,20 +32,34 @@ public class NoticeReceiver extends BroadcastReceiver {
         PendingIntent pendingIntent = PendingIntent.getActivity(context, intent.getIntExtra(Constants.EXTRA_REQUEST, 0),
                 notificationIntent, 0);
 
+
+
         final NotificationCompat.Builder mBuilder =
                 (NotificationCompat.Builder) new NotificationCompat.Builder(context)
                         .setSmallIcon(R.drawable.ic_nr)
                         .setContentTitle(context.getString(R.string.app_name))
                         .setContentText(intent.getStringExtra(Constants.EXTRA_DESCRIPT))
-                        .setVibrate(new long[] {1000, 1000, 1000, 1000, 1000} )
-                        .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                         .setContentIntent(pendingIntent);
 
+        /** If in settings switch == true then set vibrate patter */
+
+        if (SingletonSharedPreferences.getInstance(context).getVibrateStatus()) {
+            mBuilder.setVibrate(new long[] {1000, 1000, 1000, 1000, 1000} );
+        }
+
+        /** If in settings switch == true then set sound */
+
+        if (SingletonSharedPreferences.getInstance(context).getSoundStatus()) {
+            mBuilder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+        }
+
         final Notification notification = mBuilder.build();
+
 
         final NotificationManager notificationManager = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(TAG, 0, notification);
+
 
         android.os.Process.killProcess(android.os.Process.myPid());
     }
