@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatCheckBox;
+import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Button;
 
 import com.ninise.notereminder.R;
 import com.ninise.notereminder.database.NoteWorker;
+import com.ninise.notereminder.settings.preferences.SingletonSharedPreferences;
 import com.ninise.notereminder.utils.Constants;
 
 public class SettingsFragment extends Fragment {
@@ -35,6 +37,10 @@ public class SettingsFragment extends Fragment {
 
         final AppCompatCheckBox mDeleteRemindersChecked = (AppCompatCheckBox) v.findViewById(R.id.deleteAllRemindersChecked);
 
+        final SwitchCompat mVibrateSwitch = (SwitchCompat) v.findViewById(R.id.vibrateSwitch);
+
+        mVibrateSwitch.setChecked(SingletonSharedPreferences.getInstance(getActivity()).getVibrateStatus());
+
         final Button saveBtn = (Button) v.findViewById(R.id.settingsSaveBtn);
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +51,8 @@ public class SettingsFragment extends Fragment {
                 if (mDeleteRemindersChecked.isChecked()) {
                     mNoteWorker.deleteAll(Constants.DELETE_REMINDERS);
                 }
+
+                SingletonSharedPreferences.getInstance(getActivity()).setVibrateStatus(mVibrateSwitch.isChecked());
 
                 getActivity().onBackPressed();
             }
