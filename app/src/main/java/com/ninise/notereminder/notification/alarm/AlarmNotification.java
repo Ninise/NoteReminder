@@ -1,4 +1,4 @@
-package com.ninise.notereminder.notification;
+package com.ninise.notereminder.notification.alarm;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.ninise.notereminder.database.NoteModel;
+import com.ninise.notereminder.notification.broadcastreceivers.NoticeReceiver;
 import com.ninise.notereminder.utils.Constants;
 
 public class AlarmNotification {

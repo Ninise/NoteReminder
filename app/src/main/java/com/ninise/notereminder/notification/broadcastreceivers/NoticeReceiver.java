@@ -1,4 +1,4 @@
-package com.ninise.notereminder.notification;
+package com.ninise.notereminder.notification.broadcastreceivers;
 
 import android.app.Notification;
 import android.app.NotificationManager;
