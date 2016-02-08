@@ -38,8 +38,10 @@ public class SettingsFragment extends Fragment {
         final AppCompatCheckBox mDeleteRemindersChecked = (AppCompatCheckBox) v.findViewById(R.id.deleteAllRemindersChecked);
 
         final SwitchCompat mVibrateSwitch = (SwitchCompat) v.findViewById(R.id.vibrateSwitch);
+        final SwitchCompat mSoundSwitch = (SwitchCompat) v.findViewById(R.id.soundSwitch);
 
         mVibrateSwitch.setChecked(SingletonSharedPreferences.getInstance(getActivity()).getVibrateStatus());
+        mSoundSwitch.setChecked(SingletonSharedPreferences.getInstance(getActivity()).getSoundStatus());
 
         final Button saveBtn = (Button) v.findViewById(R.id.settingsSaveBtn);
         saveBtn.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +55,7 @@ public class SettingsFragment extends Fragment {
                 }
 
                 SingletonSharedPreferences.getInstance(getActivity()).setVibrateStatus(mVibrateSwitch.isChecked());
+                SingletonSharedPreferences.getInstance(getActivity()).setSoundStatus(mSoundSwitch.isChecked());
 
                 getActivity().onBackPressed();
             }
