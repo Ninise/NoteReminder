@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.ninise.notereminder.R;
 import com.ninise.notereminder.database.NoteModel;
 import com.ninise.notereminder.database.NoteWorker;
-import com.ninise.notereminder.notification.AlarmNotification;
+import com.ninise.notereminder.notification.alarm.AlarmNotification;
 import com.ninise.notereminder.utils.Constants;
 import com.ninise.notereminder.utils.Utils;
 

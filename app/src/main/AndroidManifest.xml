@@ -2,6 +2,8 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
         android:allowBackup="true"
@@ -27,13 +29,23 @@
         <activity android:name=".settings.SettingsActivity"
                   android:screenOrientation="portrait"/>
 
-        <receiver android:name=".notification.NoticeReceiver"
+        <receiver android:name=".notification.broadcastreceivers.NoticeReceiver"
                   android:enabled="true"
                   android:exported="true">
             <intent-filter>
                 <action android:name="com.ninise.notereminder.NOTICE"/>
             </intent-filter>
         </receiver>
+
+        <receiver android:name=".notification.broadcastreceivers.BootAlarmReceiver"
+                  android:enabled="true"
+                  android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".notification.service.BootAlarmService"/>
 
     </application>
 
