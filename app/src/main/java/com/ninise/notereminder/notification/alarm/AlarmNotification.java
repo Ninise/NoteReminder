@@ -33,7 +33,7 @@ public class AlarmNotification {
     public void cancelAlarm(NoteModel noteModel) {
         final Intent intent = new Intent(context, NoticeReceiver.class);
 
-        final PendingIntent sender = PendingIntent.getBroadcast(context, noteModel.getId(), intent, 0);
+        final PendingIntent sender = PendingIntent.getBroadcast(context, noteModel.getRequest(), intent, 0);
 
         final AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 

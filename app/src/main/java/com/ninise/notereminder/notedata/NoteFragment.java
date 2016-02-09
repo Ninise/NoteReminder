@@ -63,6 +63,11 @@ public class NoteFragment extends Fragment {
         mTitleEditText = (EditText) v.findViewById(R.id.titleEditText);
         mDescriptionEditText = (EditText) v.findViewById(R.id.descriptEditText);
 
+        final Button mCancelAlarmBtn = (Button) v.findViewById(R.id.cancelAlarmBtn);
+        final Button mSetTimeBtn = (Button) v.findViewById(R.id.setAlarmBtn);
+        final Button mSaveBtn = (Button) v.findViewById(R.id.saveNoteBtn);
+
+
         if (getBundleNotNull()) {
             ID = getActivity().getIntent().getExtras().getInt(Constants.EXTRA_ID);
             final String title = getActivity().getIntent().getExtras().getString(Constants.EXTRA_TITLE);
@@ -72,18 +77,18 @@ public class NoteFragment extends Fragment {
 
             mTitleEditText.setText(title);
             mDescriptionEditText.setText(descript);
-
-            Log.d(TAG, title + "  " + descript +  "  " + REQUEST);
         }
 
 
-        final Button mSetTimeBtn = (Button) v.findViewById(R.id.setAlarmBtn);
 
         mTimeTextView = (TextView) v.findViewById(R.id.timeTextView);
 
         if (TIME > 0) {
             mSetTimeBtn.setText(getString(R.string.change_time_reminder));
             mTimeTextView.setText(getString(R.string.to_time) + " " + date.format(TIME));
+            mCancelAlarmBtn.setVisibility(View.VISIBLE);
+        } else {
+            mCancelAlarmBtn.setVisibility(View.INVISIBLE);
         }
 
         if (Utils.isTextViewEmpty(mTitleEditText) && Utils.isTextViewEmpty(mDescriptionEditText)) {
@@ -98,7 +103,15 @@ public class NoteFragment extends Fragment {
             }
         });
 
-        final Button mSaveBtn = (Button) v.findViewById(R.id.saveNoteBtn);
+
+        mCancelAlarmBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TIME = 0;
+                cancelAlarm(getNote());
+            }
+        });
+
 
         mSaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,7 +182,7 @@ public class NoteFragment extends Fragment {
 
                         TIME = calendar.getTimeInMillis();
                         mTimeTextView.setText(getString(R.string.to_time) + " " + date.format(TIME));
-                        alarm(getNote());
+                        setAlarm(getNote());
                     }
                 })
                 .setNegativeButton(R.string.cancel_btn, new DialogInterface.OnClickListener() {
@@ -190,10 +203,14 @@ public class NoteFragment extends Fragment {
         alert.show();
     }
 
-    private void alarm(NoteModel noteModel) {
+    private void setAlarm(NoteModel noteModel) {
         final AlarmNotification alarm = new AlarmNotification(getActivity());
-        Log.d(TAG, "setAlarm");
         alarm.setOnceAlarm(TIME, noteModel);
+    }
+
+    private void cancelAlarm(NoteModel noteModel) {
+        final AlarmNotification alarm = new AlarmNotification(getActivity());
+        alarm.cancelAlarm(noteModel);
     }
 
     @Override
