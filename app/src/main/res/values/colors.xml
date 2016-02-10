@@ -8,4 +8,5 @@
     <color name="colorBlack">#000000</color>
     <color name="colorPrimaryLight">#586efc</color>
     <color name="colorGrey">#5a5a5b</color>
+    <color name="colorGreyOpaque">#105a5a5b</color>
 </resources>

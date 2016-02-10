@@ -3,6 +3,7 @@ package com.ninise.notereminder.main.adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -23,6 +24,7 @@ import com.ninise.notereminder.database.NoteWorker;
 import com.ninise.notereminder.notedata.NoteActivity;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
@@ -81,12 +83,19 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
         holder.mTitleTextView.setText(title);
 
-
+        /** Add deadline to reminder */
         if (mDataSet.get(holder.getAdapterPosition()).getTime() > 0) {
 
             final String deadline = context.getString(R.string.to_time);
 
             holder.mToTextView.setText(deadline + " " + date.format(mDataSet.get(holder.getAdapterPosition()).getTime()));
+        }
+
+        /** Set color for oldest reminders */
+        if ((mDataSet.get(holder.getAdapterPosition()).getTime() != 0 ) &&
+                (mDataSet.get(holder.getAdapterPosition()).getTime() <= System.currentTimeMillis()) ) {
+            holder.cv.setCardElevation(0);
+            holder.cv.setCardBackgroundColor(context.getResources().getColor(R.color.colorGreyOpaque));
         }
 
         /** Click on CardView for send data to NoteActivity */
