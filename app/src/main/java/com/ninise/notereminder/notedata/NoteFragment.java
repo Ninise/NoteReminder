@@ -68,6 +68,7 @@ public class NoteFragment extends Fragment {
         final Button mSaveBtn = (Button) v.findViewById(R.id.saveNoteBtn);
 
 
+        /** Get data from intent (NoteListFragment or ReminderListFragment or Notification) */
         if (getBundleNotNull()) {
             ID = getActivity().getIntent().getExtras().getInt(Constants.EXTRA_ID);
             final String title = getActivity().getIntent().getExtras().getString(Constants.EXTRA_TITLE);
@@ -79,22 +80,37 @@ public class NoteFragment extends Fragment {
             mDescriptionEditText.setText(descript);
         }
 
-
-
         mTimeTextView = (TextView) v.findViewById(R.id.timeTextView);
 
+
+        /**
+         * If note changed to reminder than we need to write the time of reminder and
+         * give user a chance for canceling the reminder or changing time of alarm
+         **/
         if (TIME > 0) {
             mSetTimeBtn.setText(getString(R.string.change_time_reminder));
             mTimeTextView.setText(getString(R.string.to_time) + " " + date.format(TIME));
-            mCancelAlarmBtn.setVisibility(View.VISIBLE);
-        } else {
+        }
+
+
+        /** Set Cancel button as INVISIBLE only when alarm is finished */
+        if (TIME < System.currentTimeMillis()) {
             mCancelAlarmBtn.setVisibility(View.INVISIBLE);
         }
 
+
+        /** For other situations set as VISIBLE */
+        else {
+            mCancelAlarmBtn.setVisibility(View.VISIBLE);
+        }
+
+
+        /** Set SetTime Button as visible when note has been create */
         if (Utils.isTextViewEmpty(mTitleEditText) && Utils.isTextViewEmpty(mDescriptionEditText)) {
             mSetTimeBtn.setEnabled(false);
-            mSetTimeBtn.setVisibility(View.GONE);
+            mSetTimeBtn.setVisibility(View.VISIBLE);
         }
+
 
         mSetTimeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +125,8 @@ public class NoteFragment extends Fragment {
             public void onClick(View v) {
                 TIME = 0;
                 cancelAlarm(getNote());
+
+                getActivity().onBackPressed();
             }
         });
 
