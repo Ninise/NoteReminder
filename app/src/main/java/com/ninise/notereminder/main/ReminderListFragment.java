@@ -14,7 +14,9 @@ import com.ninise.notereminder.R;
 import com.ninise.notereminder.database.NoteModel;
 import com.ninise.notereminder.database.NoteWorker;
 import com.ninise.notereminder.main.adapters.NoteAdapter;
+import com.ninise.notereminder.utils.ReminderComparator;
 
+import java.util.Collections;
 import java.util.List;
 
 public class ReminderListFragment extends Fragment {
@@ -57,6 +59,7 @@ public class ReminderListFragment extends Fragment {
     public void onStart() {
         super.onStart();
         mNoteList = mNoteWorker.getAllReminders();
+        Collections.sort(mNoteList, new ReminderComparator());
         mAdapter = new NoteAdapter(mNoteList, getActivity());
         mRecyclerView.setAdapter(mAdapter);
 
