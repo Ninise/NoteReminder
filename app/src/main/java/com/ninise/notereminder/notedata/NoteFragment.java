@@ -7,7 +7,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -21,6 +25,7 @@ import com.ninise.notereminder.R;
 import com.ninise.notereminder.database.NoteModel;
 import com.ninise.notereminder.database.NoteWorker;
 import com.ninise.notereminder.notification.alarm.AlarmNotification;
+import com.ninise.notereminder.settings.preferences.SingletonSharedPreferences;
 import com.ninise.notereminder.utils.Constants;
 import com.ninise.notereminder.utils.Utils;
 
@@ -48,6 +53,7 @@ public class NoteFragment extends Fragment {
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
 
         noteWorker = new NoteWorker(getActivity());
 
@@ -63,7 +69,6 @@ public class NoteFragment extends Fragment {
         mTitleEditText = (EditText) v.findViewById(R.id.titleEditText);
         mDescriptionEditText = (EditText) v.findViewById(R.id.descriptEditText);
 
-        final Button mCancelAlarmBtn = (Button) v.findViewById(R.id.cancelAlarmBtn);
         final Button mSetTimeBtn = (Button) v.findViewById(R.id.setAlarmBtn);
         final Button mSaveBtn = (Button) v.findViewById(R.id.saveNoteBtn);
 
@@ -92,19 +97,6 @@ public class NoteFragment extends Fragment {
             mTimeTextView.setText(getString(R.string.to_time) + " " + date.format(TIME));
         }
 
-
-        /** Set Cancel button as INVISIBLE only when alarm is finished */
-        if (TIME < System.currentTimeMillis()) {
-            mCancelAlarmBtn.setVisibility(View.INVISIBLE);
-        }
-
-
-        /** For other situations set as VISIBLE */
-        else {
-            mCancelAlarmBtn.setVisibility(View.VISIBLE);
-        }
-
-
         /** Set SetTime Button as visible when note has been create */
         if (Utils.isTextViewEmpty(mTitleEditText) && Utils.isTextViewEmpty(mDescriptionEditText)) {
             mSetTimeBtn.setEnabled(false);
@@ -116,17 +108,6 @@ public class NoteFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showDialog();
-            }
-        });
-
-
-        mCancelAlarmBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TIME = 0;
-                cancelAlarm(getNote());
-
-                getActivity().onBackPressed();
             }
         });
 
@@ -155,6 +136,29 @@ public class NoteFragment extends Fragment {
         });
 
         return v;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        getActivity().getMenuInflater().inflate(R.menu.menu_note, menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.cancelAlarm:
+                cancelAlarm(getNote());
+                return true;
+
+            case R.id.takePhoto:
+                //TODO work with camera API
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private NoteModel getNote() {
@@ -227,6 +231,7 @@ public class NoteFragment extends Fragment {
     }
 
     private void cancelAlarm(NoteModel noteModel) {
+        TIME = 0;
         final AlarmNotification alarm = new AlarmNotification(getActivity());
         alarm.cancelAlarm(noteModel);
     }

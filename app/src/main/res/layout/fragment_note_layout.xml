@@ -63,17 +63,6 @@
         />
 
     <Button
-        android:id="@+id/cancelAlarmBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/setAlarmBtn"
-        android:layout_marginTop="3dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:text="@string/cancel_alarm_btn"
-        style="@style/RobotoButtonStyle"/>
-
-    <Button
         android:id="@+id/saveNoteBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

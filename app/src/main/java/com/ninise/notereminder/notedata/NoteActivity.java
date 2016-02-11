@@ -9,6 +9,8 @@ import android.support.v4.app.ActivityManagerCompat;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.ninise.notereminder.R;
@@ -57,6 +59,5 @@ public class NoteActivity extends AppCompatActivity {
             super.onBackPressed();
             overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
         }
-
     }
 }
