@@ -25,4 +25,6 @@
     <string name="set_vibrate">Vibrate</string>
     <string name="set_sound">Sound</string>
     <string name="cancel_alarm_btn">Cancel the remidner</string>
+    <string name="additional_settings">Additional</string>
+    <string name="foto_settings">Take photo for note</string>
 </resources>

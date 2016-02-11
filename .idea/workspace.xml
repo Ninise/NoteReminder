@@ -15,7 +15,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings_layout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="NoteReminder.iws" />
@@ -50,36 +52,34 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="128" column="16" selection-start-line="128" selection-start-column="16" selection-end-line="128" selection-end-column="16" />
               <folding>
-                <element signature="e#3343#3383#0" expanded="true" />
-                <element signature="e#3420#3447#0" expanded="true" />
-                <element signature="e#4135#4281#0" expanded="true" />
-                <element signature="e#4280#4281#0" expanded="true" />
-                <element signature="e#4329#4559#0" expanded="true" />
-                <element signature="e#4558#4559#0" expanded="true" />
-                <element signature="e#4600#5398#0" expanded="true" />
-                <element signature="e#5254#5279#0" expanded="true" />
-                <element signature="e#5397#5398#0" expanded="true" />
-                <element signature="e#5718#5719#0" expanded="true" />
-                <element signature="e#5788#5789#0" expanded="true" />
-                <element signature="e#6342#6357#0" expanded="true" />
-                <element signature="e#6359#7352#0" expanded="true" />
-                <element signature="e#7212#7239#0" expanded="true" />
-                <element signature="e#7351#7352#0" expanded="true" />
-                <element signature="e#7389#7408#0" expanded="true" />
-                <element signature="e#7685#7990#0" expanded="true" />
-                <element signature="e#7989#7990#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#4226#4227#0" expanded="false" />
+                <element signature="e#4270#4271#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26362038">
+            <state vertical-scroll-proportion="-2.586207">
               <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_settings_layout.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_settings_layout.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.4">
+              <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -88,7 +88,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="54" column="73" selection-start-line="54" selection-start-column="73" selection-end-line="54" selection-end-column="73" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1178#1179#0" expanded="false" />
+                <element signature="e#1225#1226#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,7 +100,7 @@
       <file leaf-file-name="fragment_note_layout.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_note_layout.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.45">
+            <state vertical-scroll-proportion="0.0">
               <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
               <folding />
             </state>
@@ -112,11 +116,10 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4145#4146#0" expanded="true" />
-                <element signature="e#4183#4184#0" expanded="true" />
-                <element signature="e#4274#4275#0" expanded="true" />
-                <element signature="e#4334#4335#0" expanded="true" />
+                <element signature="e#3713#3714#0" expanded="false" />
+                <element signature="e#3782#3783#0" expanded="false" />
+                <element signature="e#3988#3989#0" expanded="false" />
+                <element signature="e#4054#4055#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -127,7 +130,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,9 +142,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,7 +152,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="61" column="58" selection-start-line="61" selection-start-column="58" selection-end-line="61" selection-end-column="58" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -159,9 +164,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1749,7 +1752,6 @@
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notification/alarm/AlarmNotification.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notification/broadcastreceivers/NoticeReceiver.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/button_selector.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_cardview.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
@@ -1764,6 +1766,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notedata/NoteFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notedata/NoteActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings_layout.xml" />
       </list>
     </option>
   </component>
@@ -1808,10 +1811,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1822,24 +1821,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Gradle Scripts" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NoteReminder" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1884,48 +1865,8 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NoteReminder" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NoteReminder" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="notereminder" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1977,57 +1918,13 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="notereminder" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NoteReminder" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="notereminder" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NoteReminder" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2324,8 +2221,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.50595236" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296131" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.652568" sideWeight="0.4940476" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296131" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.652568" sideWeight="0.4940476" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296131" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.49702382" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.49702382" order="7" side_tool="false" content_ui="tabs" />
@@ -2364,11 +2261,75 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_note_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/main/adapters/NoteAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding>
+            <element signature="e#3713#3714#0" expanded="false" />
+            <element signature="e#3782#3783#0" expanded="false" />
+            <element signature="e#3988#3989#0" expanded="false" />
+            <element signature="e#4054#4055#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/main/ReminderListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/utils/NoteComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/main/NoteListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="58" selection-start-line="61" selection-start-column="58" selection-end-line="61" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/utils/ReminderComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notedata/NoteFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="90" column="58" selection-start-line="90" selection-start-column="58" selection-end-line="90" selection-end-column="58" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4226#4227#0" expanded="false" />
+            <element signature="e#4270#4271#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2384,11 +2345,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="66" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#512#513#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2396,8 +2352,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="71" selection-start-line="21" selection-start-column="71" selection-end-line="21" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notification/service/BootAlarmService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#479#486#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notification/alarm/AlarmNotification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notedata/NoteFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="195" column="30" selection-start-line="195" selection-start-column="30" selection-end-line="195" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="false" />
+            <element signature="e#4226#4227#0" expanded="false" />
+            <element signature="e#4270#4271#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2431,11 +2428,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#512#513#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2443,7 +2435,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="195" column="30" selection-start-line="195" selection-start-column="30" selection-end-line="195" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4226#4227#0" expanded="false" />
+            <element signature="e#4270#4271#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2476,11 +2472,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#512#513#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2488,52 +2479,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="195" column="30" selection-start-line="195" selection-start-column="30" selection-end-line="195" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notification/service/BootAlarmService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#479#486#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notification/alarm/AlarmNotification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#512#513#0" expanded="false" />
+            <element signature="e#4226#4227#0" expanded="false" />
+            <element signature="e#4270#4271#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ninise/notereminder/notedata/NoteFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="195" column="30" selection-start-line="195" selection-start-column="30" selection-end-line="195" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2548,11 +2498,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#512#513#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2560,7 +2505,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="195" column="30" selection-start-line="195" selection-start-column="30" selection-end-line="195" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4226#4227#0" expanded="false" />
+            <element signature="e#4270#4271#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2593,11 +2542,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="66" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-            <element signature="e#512#513#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2605,9 +2549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="71" selection-start-line="21" selection-start-column="71" selection-end-line="21" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2617,17 +2558,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_settings_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5">
-          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/button_selector.xml">
@@ -2670,11 +2600,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4145#4146#0" expanded="true" />
-            <element signature="e#4183#4184#0" expanded="true" />
-            <element signature="e#4274#4275#0" expanded="true" />
-            <element signature="e#4334#4335#0" expanded="true" />
+            <element signature="e#3713#3714#0" expanded="false" />
+            <element signature="e#3782#3783#0" expanded="false" />
+            <element signature="e#3988#3989#0" expanded="false" />
+            <element signature="e#4054#4055#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2683,7 +2612,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09569378">
           <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2691,9 +2619,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2701,9 +2627,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2711,7 +2635,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23923445">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2719,7 +2642,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="61" column="58" selection-start-line="61" selection-start-column="58" selection-end-line="61" selection-end-column="58" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2727,13 +2652,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_note_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.45">
+        <state vertical-scroll-proportion="0.0">
           <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding />
         </state>
@@ -2747,24 +2674,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="128" column="16" selection-start-line="128" selection-start-column="16" selection-end-line="128" selection-end-column="16" />
           <folding>
-            <element signature="e#3343#3383#0" expanded="true" />
-            <element signature="e#3420#3447#0" expanded="true" />
-            <element signature="e#4135#4281#0" expanded="true" />
-            <element signature="e#4280#4281#0" expanded="true" />
-            <element signature="e#4329#4559#0" expanded="true" />
-            <element signature="e#4558#4559#0" expanded="true" />
-            <element signature="e#4600#5398#0" expanded="true" />
-            <element signature="e#5254#5279#0" expanded="true" />
-            <element signature="e#5397#5398#0" expanded="true" />
-            <element signature="e#5718#5719#0" expanded="true" />
-            <element signature="e#5788#5789#0" expanded="true" />
-            <element signature="e#6342#6357#0" expanded="true" />
-            <element signature="e#6359#7352#0" expanded="true" />
-            <element signature="e#7212#7239#0" expanded="true" />
-            <element signature="e#7351#7352#0" expanded="true" />
-            <element signature="e#7389#7408#0" expanded="true" />
-            <element signature="e#7685#7990#0" expanded="true" />
-            <element signature="e#7989#7990#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#4226#4227#0" expanded="false" />
+            <element signature="e#4270#4271#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2773,7 +2685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.0">
           <caret line="2571" column="59" selection-start-line="2571" selection-start-column="59" selection-end-line="2571" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2781,16 +2692,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="54" column="73" selection-start-line="54" selection-start-column="73" selection-end-line="54" selection-end-column="73" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1178#1179#0" expanded="false" />
+            <element signature="e#1225#1226#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26362038">
+        <state vertical-scroll-proportion="-2.586207">
           <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_settings_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
   </component>
