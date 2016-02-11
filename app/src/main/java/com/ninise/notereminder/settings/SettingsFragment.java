@@ -39,9 +39,11 @@ public class SettingsFragment extends Fragment {
 
         final SwitchCompat mVibrateSwitch = (SwitchCompat) v.findViewById(R.id.vibrateSwitch);
         final SwitchCompat mSoundSwitch = (SwitchCompat) v.findViewById(R.id.soundSwitch);
+        final SwitchCompat mPhotoSwitch = (SwitchCompat) v.findViewById(R.id.photoSwitch);
 
         mVibrateSwitch.setChecked(SingletonSharedPreferences.getInstance(getActivity()).getVibrateStatus());
         mSoundSwitch.setChecked(SingletonSharedPreferences.getInstance(getActivity()).getSoundStatus());
+        mPhotoSwitch.setChecked(SingletonSharedPreferences.getInstance(getActivity()).getPhotoStatus());
 
         final Button saveBtn = (Button) v.findViewById(R.id.settingsSaveBtn);
         saveBtn.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +58,7 @@ public class SettingsFragment extends Fragment {
 
                 SingletonSharedPreferences.getInstance(getActivity()).setVibrateStatus(mVibrateSwitch.isChecked());
                 SingletonSharedPreferences.getInstance(getActivity()).setSoundStatus(mSoundSwitch.isChecked());
+                SingletonSharedPreferences.getInstance(getActivity()).setPhotoStatus(mPhotoSwitch.isChecked());
 
                 getActivity().onBackPressed();
             }
