@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/cancelAlarm"
+          android:title="@string/cancel_alarm_btn"/>
+
+    <item android:id="@+id/takePhoto"
+          android:title="@string/foto_settings"/>
+</menu>
