@@ -105,6 +105,37 @@
         android:layout_alignParentRight="true"
         android:layout_below="@id/vibrateSwitch"/>
 
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/additionalTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/soundSwitch"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:text="@string/additional_settings"
+        android:textSize="30sp"
+        style="?android:listSeparatorTextViewStyle"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/set_foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/additionalTextView"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:text="@string/foto_settings"
+        android:textSize="20sp"/>
+
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/set_foto_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/additionalTextView"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"/>
+
     <Button
         android:id="@+id/settingsSaveBtn"
         android:layout_width="match_parent"
