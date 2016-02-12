@@ -142,6 +142,10 @@ public class NoteFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         getActivity().getMenuInflater().inflate(R.menu.menu_note, menu);
+        MenuItem item = menu.findItem(R.id.cancelAlarm);
+        if (TIME < System.currentTimeMillis()) {
+            item.setVisible(false);
+        }
     }
 
 
