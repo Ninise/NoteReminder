@@ -2,10 +2,13 @@ package com.ninise.notereminder.notedata;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -17,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -27,6 +31,7 @@ import com.ninise.notereminder.database.NoteWorker;
 import com.ninise.notereminder.notification.alarm.AlarmNotification;
 import com.ninise.notereminder.settings.preferences.SingletonSharedPreferences;
 import com.ninise.notereminder.utils.Constants;
+import com.ninise.notereminder.utils.SingletonCameraWorker;
 import com.ninise.notereminder.utils.Utils;
 
 import java.text.SimpleDateFormat;
@@ -40,6 +45,7 @@ public class NoteFragment extends Fragment {
     private EditText mTitleEditText;
     private EditText mDescriptionEditText;
     private TextView mTimeTextView;
+    private AppCompatImageView mImageView;
 
     private NoteWorker noteWorker;
 
@@ -72,6 +78,7 @@ public class NoteFragment extends Fragment {
         final Button mSetTimeBtn = (Button) v.findViewById(R.id.setAlarmBtn);
         final Button mSaveBtn = (Button) v.findViewById(R.id.saveNoteBtn);
 
+        mImageView = (AppCompatImageView) v.findViewById(R.id.notePhotoImageView);
 
         /** Get data from intent (NoteListFragment or ReminderListFragment or Notification) */
         if (getBundleNotNull()) {
@@ -158,11 +165,19 @@ public class NoteFragment extends Fragment {
                 return true;
 
             case R.id.takePhoto:
-                //TODO work with camera API
+                startActivityForResult(SingletonCameraWorker.getInstance(getActivity()).openCamera(), 0);
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Bitmap bp = (Bitmap) data.getExtras().get("data");
+        mImageView.setImageBitmap(bp);
     }
 
     private NoteModel getNote() {
