@@ -65,7 +65,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
     public NoteAdapter (final List<NoteModel> dataset, final Context context) {
         mDataSet = dataset;
         this.context = context;
-        date = new SimpleDateFormat("dd MMM hh:mm:ss");
+        date = new SimpleDateFormat("dd MMM hh:mm a");
     }
 
     @Override

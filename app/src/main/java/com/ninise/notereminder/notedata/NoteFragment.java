@@ -57,7 +57,7 @@ public class NoteFragment extends Fragment {
 
         noteWorker = new NoteWorker(getActivity());
 
-        date = new SimpleDateFormat("dd MMM hh:mm:ss");
+        date = new SimpleDateFormat("dd MMM hh:mm a");
     }
 
     @SuppressLint("SetTextI18n")
