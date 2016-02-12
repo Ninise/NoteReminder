@@ -74,4 +74,14 @@
         style="@style/RobotoButtonStyle"
         />
 
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/notePhotoImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/setAlarmBtn"
+        android:layout_above="@id/saveNoteBtn"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
 </RelativeLayout>
