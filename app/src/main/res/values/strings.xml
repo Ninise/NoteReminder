@@ -27,4 +27,5 @@
     <string name="cancel_alarm_btn">Cancel the remidner</string>
     <string name="additional_settings">Additional</string>
     <string name="foto_settings">Take photo for note</string>
+    <string name="no_camera">Your device doesn\'t have camera</string>
 </resources>

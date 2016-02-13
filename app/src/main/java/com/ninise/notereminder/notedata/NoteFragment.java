@@ -3,6 +3,7 @@ package com.ninise.notereminder.notedata;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -165,7 +166,17 @@ public class NoteFragment extends Fragment {
                 return true;
 
             case R.id.takePhoto:
-                startActivityForResult(SingletonCameraWorker.getInstance(getActivity()).openCamera(), 0);
+
+                if (getActivity().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
+
+                    SingletonCameraWorker.getInstance(getActivity()).openCamera();
+
+                } else {
+
+                    Toast.makeText(getActivity(), R.string.no_camera, Toast.LENGTH_LONG).show();
+
+                }
+
                 return true;
         }
 
