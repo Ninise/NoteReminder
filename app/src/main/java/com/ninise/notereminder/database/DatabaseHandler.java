@@ -23,6 +23,7 @@ public class DatabaseHandler {
     private static final String KEY_DESCRIPTION = "description";
     private static final String KEY_TIME = "time";
     private static final String KEY_REQUEST = "request";
+    private static final String KEY_PHOTO_PATH = "photopath";
 
     private static final String CREATE_NOTES_TABLE = "CREATE TABLE " +
             TABLE_NOTES + "(" +
@@ -30,7 +31,8 @@ public class DatabaseHandler {
             KEY_TITLE + " TEXT," +
             KEY_DESCRIPTION + " TEXT," +
             KEY_TIME + " BIGINT," +
-            KEY_REQUEST + " INTEGER" +
+            KEY_REQUEST + " INTEGER," +
+            KEY_PHOTO_PATH + " TEXT" +
             ")";
 
     private final SQLiteDatabase storage;
@@ -79,7 +81,8 @@ public class DatabaseHandler {
                                         KEY_TITLE,
                                         KEY_DESCRIPTION,
                                         KEY_TIME,
-                                        KEY_REQUEST
+                                        KEY_REQUEST,
+                                        KEY_PHOTO_PATH,
                                 }, KEY_ID + " = ?",
                                 new String[] { String.valueOf(id) },
                                 null,
@@ -97,7 +100,8 @@ public class DatabaseHandler {
                 cursor.getString(1),
                 cursor.getString(2),
                 Long.parseLong(cursor.getString(3)),
-                Integer.parseInt(cursor.getString(4)));
+                Integer.parseInt(cursor.getString(4)),
+                cursor.getString(5));
 
         cursor.close();
 
@@ -119,6 +123,7 @@ public class DatabaseHandler {
                   noteModel.setDescription(cursor.getString(2));
                   noteModel.setTime(Long.parseLong(cursor.getString(3)));
                   noteModel.setRequest(Integer.parseInt(cursor.getString(4)));
+                  noteModel.setPath(cursor.getString(5));
 
                 dataNotesList.add(noteModel);
             } while (cursor.moveToNext());
@@ -135,6 +140,7 @@ public class DatabaseHandler {
         values.put(KEY_TITLE, noteModel.getTitle());
         values.put(KEY_DESCRIPTION, noteModel.getDescription());
         values.put(KEY_TIME, noteModel.getTime());
+        values.put(KEY_PHOTO_PATH, noteModel.getPath());
 
         return this.storage.update(TABLE_NOTES, values, KEY_ID + " = " + noteModel.getId(), null);
     }
