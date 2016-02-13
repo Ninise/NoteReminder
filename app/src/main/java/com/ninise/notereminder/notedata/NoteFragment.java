@@ -5,7 +5,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -33,8 +35,10 @@ import com.ninise.notereminder.notification.alarm.AlarmNotification;
 import com.ninise.notereminder.settings.preferences.SingletonSharedPreferences;
 import com.ninise.notereminder.utils.Constants;
 import com.ninise.notereminder.utils.SingletonCameraWorker;
+import com.ninise.notereminder.utils.SingletonPhotoLoader;
 import com.ninise.notereminder.utils.Utils;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -42,6 +46,8 @@ import java.util.GregorianCalendar;
 public class NoteFragment extends Fragment {
 
     private static final String TAG = "NoteFragment";
+
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private EditText mTitleEditText;
     private EditText mDescriptionEditText;
@@ -53,6 +59,7 @@ public class NoteFragment extends Fragment {
     private static int ID;
     private static long TIME;
     private static int REQUEST;
+    private static String PATH;
 
     private SimpleDateFormat date;
 
@@ -79,8 +86,6 @@ public class NoteFragment extends Fragment {
         final Button mSetTimeBtn = (Button) v.findViewById(R.id.setAlarmBtn);
         final Button mSaveBtn = (Button) v.findViewById(R.id.saveNoteBtn);
 
-        mImageView = (AppCompatImageView) v.findViewById(R.id.notePhotoImageView);
-
         /** Get data from intent (NoteListFragment or ReminderListFragment or Notification) */
         if (getBundleNotNull()) {
             ID = getActivity().getIntent().getExtras().getInt(Constants.EXTRA_ID);
@@ -88,6 +93,9 @@ public class NoteFragment extends Fragment {
             final String descript = getActivity().getIntent().getExtras().getString(Constants.EXTRA_DESCRIPT);
             TIME = getActivity().getIntent().getExtras().getLong(Constants.EXTRA_TIME);
             REQUEST = getActivity().getIntent().getExtras().getInt(Constants.EXTRA_REQUEST);
+            PATH = getActivity().getIntent().getExtras().getString(Constants.EXTRA_PATH);
+
+            Log.d(TAG, getNote().toString());
 
             mTitleEditText.setText(title);
             mDescriptionEditText.setText(descript);
@@ -128,7 +136,6 @@ public class NoteFragment extends Fragment {
                     if (!Utils.isTextViewEmpty(mTitleEditText)) {
                         REQUEST = Utils.generateRequest();
                         noteWorker.addNote(getNote());
-                        Log.d(TAG, getNote().toString());
                     }
 
                 } else {
@@ -142,6 +149,16 @@ public class NoteFragment extends Fragment {
                 getActivity().onBackPressed();
             }
         });
+
+        mImageView = (AppCompatImageView) v.findViewById(R.id.notePhotoImageView);
+        try {
+
+            if (PATH != null && !PATH.equals("")) {
+                mImageView.setImageBitmap(SingletonPhotoLoader.getInstance(getActivity()).load(PATH));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return v;
     }
@@ -167,10 +184,20 @@ public class NoteFragment extends Fragment {
 
             case R.id.takePhoto:
 
-                if (getActivity().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
+                if (SingletonCameraWorker.getInstance(getActivity()).openCamera().
+                        resolveActivity(getActivity().getPackageManager()) != null) {
 
-                    SingletonCameraWorker.getInstance(getActivity()).openCamera();
-
+                    startActivityForResult(
+                            SingletonCameraWorker
+                            .getInstance(getActivity())
+                            .openCamera()
+                            .putExtra(
+                                    MediaStore.EXTRA_OUTPUT,
+                                    SingletonPhotoLoader.getInstance(getActivity()).save()
+                            ),
+                            REQUEST_IMAGE_CAPTURE
+                    );
+                            PATH = SingletonPhotoLoader.getInstance(getActivity()).save().toString();
                 } else {
 
                     Toast.makeText(getActivity(), R.string.no_camera, Toast.LENGTH_LONG).show();
@@ -183,21 +210,14 @@ public class NoteFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        Bitmap bp = (Bitmap) data.getExtras().get("data");
-        mImageView.setImageBitmap(bp);
-    }
-
     private NoteModel getNote() {
         return new NoteModel (
                 ID,
                 mTitleEditText.getText().toString(),
                 mDescriptionEditText.getText().toString(),
                 TIME,
-                REQUEST);
+                REQUEST,
+                PATH);
     }
 
     private boolean getBundleNotNull() {
@@ -208,7 +228,6 @@ public class NoteFragment extends Fragment {
     public void onPause() {
         super.onPause();
         TIME = 0;
-        noteWorker.close();
     }
 
     @SuppressLint("InflateParams")
@@ -269,6 +288,5 @@ public class NoteFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        noteWorker.close();
     }
 }

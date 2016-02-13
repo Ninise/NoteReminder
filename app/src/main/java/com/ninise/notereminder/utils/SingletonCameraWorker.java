@@ -2,13 +2,11 @@ package com.ninise.notereminder.utils;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.provider.MediaStore;
-import android.util.Log;
 
 public class SingletonCameraWorker {
 
-    private static SingletonCameraWorker mInstance;
+    private static SingletonCameraWorker mInstance = null;
 
     private static Context mContext;
 
@@ -28,6 +26,5 @@ public class SingletonCameraWorker {
     public Intent openCamera() {
         return new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
     }
-
 
 }
