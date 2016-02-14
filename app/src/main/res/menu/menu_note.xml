@@ -4,6 +4,4 @@
     <item android:id="@+id/cancelAlarm"
           android:title="@string/cancel_alarm_btn"/>
 
-    <item android:id="@+id/takePhoto"
-          android:title="@string/foto_settings"/>
 </menu>

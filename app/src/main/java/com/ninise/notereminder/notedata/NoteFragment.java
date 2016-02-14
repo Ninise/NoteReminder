@@ -2,10 +2,6 @@ package com.ninise.notereminder.notedata;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -13,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -32,10 +26,7 @@ import com.ninise.notereminder.R;
 import com.ninise.notereminder.database.NoteModel;
 import com.ninise.notereminder.database.NoteWorker;
 import com.ninise.notereminder.notification.alarm.AlarmNotification;
-import com.ninise.notereminder.settings.preferences.SingletonSharedPreferences;
 import com.ninise.notereminder.utils.Constants;
-import com.ninise.notereminder.utils.SingletonCameraWorker;
-import com.ninise.notereminder.utils.SingletonPhotoLoader;
 import com.ninise.notereminder.utils.Utils;
 
 import java.io.IOException;
@@ -47,19 +38,15 @@ public class NoteFragment extends Fragment {
 
     private static final String TAG = "NoteFragment";
 
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
-
     private EditText mTitleEditText;
     private EditText mDescriptionEditText;
     private TextView mTimeTextView;
-    private AppCompatImageView mImageView;
 
     private NoteWorker noteWorker;
 
     private static int ID;
     private static long TIME;
     private static int REQUEST;
-    private static String PATH;
 
     private SimpleDateFormat date;
 
@@ -93,9 +80,7 @@ public class NoteFragment extends Fragment {
             final String descript = getActivity().getIntent().getExtras().getString(Constants.EXTRA_DESCRIPT);
             TIME = getActivity().getIntent().getExtras().getLong(Constants.EXTRA_TIME);
             REQUEST = getActivity().getIntent().getExtras().getInt(Constants.EXTRA_REQUEST);
-            PATH = getActivity().getIntent().getExtras().getString(Constants.EXTRA_PATH);
 
-            Log.d(TAG, getNote().toString());
 
             mTitleEditText.setText(title);
             mDescriptionEditText.setText(descript);
@@ -150,8 +135,6 @@ public class NoteFragment extends Fragment {
             }
         });
 
-        mImageView = (AppCompatImageView) v.findViewById(R.id.notePhotoImageView);
-
         return v;
     }
 
@@ -174,29 +157,6 @@ public class NoteFragment extends Fragment {
                 cancelAlarm(getNote());
                 return true;
 
-            case R.id.takePhoto:
-
-                if (SingletonCameraWorker.getInstance(getActivity()).openCamera().
-                        resolveActivity(getActivity().getPackageManager()) != null) {
-
-                    startActivityForResult(
-                            SingletonCameraWorker
-                            .getInstance(getActivity())
-                            .openCamera()
-                            .putExtra(
-                                    MediaStore.EXTRA_OUTPUT,
-                                    SingletonPhotoLoader.getInstance(getActivity()).save()
-                            ),
-                            REQUEST_IMAGE_CAPTURE
-                    );
-                            PATH = SingletonPhotoLoader.getInstance(getActivity()).save().toString();
-                } else {
-
-                    Toast.makeText(getActivity(), R.string.no_camera, Toast.LENGTH_LONG).show();
-
-                }
-
-                return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -208,26 +168,11 @@ public class NoteFragment extends Fragment {
                 mTitleEditText.getText().toString(),
                 mDescriptionEditText.getText().toString(),
                 TIME,
-                REQUEST,
-                PATH);
+                REQUEST);
     }
 
     private boolean getBundleNotNull() {
         return (getActivity().getIntent().getExtras() != null);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        try {
-
-            if (PATH != null && !PATH.equals("")) {
-                mImageView.setImageBitmap(SingletonPhotoLoader.getInstance(getActivity()).load(PATH));
-                PATH = "";
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override

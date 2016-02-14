@@ -7,7 +7,6 @@ public class NoteModel {
     private String description;
     private long time;
     private int request;
-    private String path;
 
     public NoteModel () {
 
@@ -26,13 +25,12 @@ public class NoteModel {
         this.request = request;
     }
 
-    public NoteModel(final int id, final String title, final String description, final long time, int request, String path) {
+    public NoteModel(final int id, final String title, final String description, final long time, int request) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.time = time;
         this.request = request;
-        this.path = path;
     }
 
     public int getId() {
@@ -75,14 +73,6 @@ public class NoteModel {
         this.request = request;
     }
 
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
     @Override
     public String toString() {
         return "NoteModel{" +
@@ -91,7 +81,6 @@ public class NoteModel {
                 ", description='" + description + '\'' +
                 ", time=" + time +
                 ", request=" + request +
-                ", photopath=" + path +
                 '}';
     }
 

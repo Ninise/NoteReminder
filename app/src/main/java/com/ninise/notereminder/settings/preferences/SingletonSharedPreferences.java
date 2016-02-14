@@ -46,14 +46,4 @@ public class SingletonSharedPreferences {
     public boolean getSoundStatus() {
         return preferences.contains(APP_PREFERENCES_SOUND) && preferences.getBoolean(APP_PREFERENCES_SOUND, false);
     }
-
-    public void setPhotoStatus(boolean status) {
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean(APP_PREFERENCES_PHOTO, status);
-        editor.apply();
-    }
-
-    public boolean getPhotoStatus() {
-        return preferences.contains(APP_PREFERENCES_PHOTO) && preferences.getBoolean(APP_PREFERENCES_PHOTO, false);
-    }
 }
