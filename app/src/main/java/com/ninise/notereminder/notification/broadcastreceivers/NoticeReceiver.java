@@ -37,6 +37,8 @@ public class NoticeReceiver extends BroadcastReceiver {
         final NotificationCompat.Builder mBuilder =
                 (NotificationCompat.Builder) new NotificationCompat.Builder(context)
                         .setSmallIcon(R.drawable.ic_nr)
+                        .setAutoCancel(true)
+                        .setWhen(System.currentTimeMillis())
                         .setContentTitle(context.getString(R.string.app_name))
                         .setContentText(intent.getStringExtra(Constants.EXTRA_DESCRIPT))
                         .setContentIntent(pendingIntent);
