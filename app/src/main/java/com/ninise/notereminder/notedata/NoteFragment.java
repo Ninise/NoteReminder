@@ -151,14 +151,6 @@ public class NoteFragment extends Fragment {
         });
 
         mImageView = (AppCompatImageView) v.findViewById(R.id.notePhotoImageView);
-        try {
-
-            if (PATH != null && !PATH.equals("")) {
-                mImageView.setImageBitmap(SingletonPhotoLoader.getInstance(getActivity()).load(PATH));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         return v;
     }
@@ -222,6 +214,20 @@ public class NoteFragment extends Fragment {
 
     private boolean getBundleNotNull() {
         return (getActivity().getIntent().getExtras() != null);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        try {
+
+            if (PATH != null && !PATH.equals("")) {
+                mImageView.setImageBitmap(SingletonPhotoLoader.getInstance(getActivity()).load(PATH));
+                PATH = "";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
